@@ -9,7 +9,7 @@ class MultiCountryLegalState(BaseModel):
             "jurisdiction": "Unknown",
             "user_type": "general",
             "document_type": "legal",
-            "detected_country": "unknown"  # Changé de None à "unknown"
+            "detected_country": "unknown"
         }
     )
     session_id: Optional[str] = None
@@ -18,6 +18,11 @@ class MultiCountryLegalState(BaseModel):
     router_decision: Optional[str] = None
     search_results: Optional[str] = None
     route_explanation: Optional[str] = None
+    # Nouveaux champs pour l'assistance email
+    assistance_requested: bool = Field(default=False)
+    user_email: Optional[str] = None
+    assistance_description: Optional[str] = None
+    email_status: Optional[str] = None  # "pending", "sent", "error"
 
 class RoutingResult(BaseModel):
     country: Literal["benin", "madagascar", "unclear"]

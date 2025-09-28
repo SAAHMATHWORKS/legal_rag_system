@@ -202,3 +202,10 @@ legal_context.detected_country
 2025-09-28 02:35:53 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
 2025-09-28 02:36:00 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
 2025-09-28 02:36:06 - root - INFO - ✅ System cleanup completed
+2025-09-28 04:04:38 - root - INFO - ✅ Multi-Country Legal RAG System initialized successfully
+2025-09-28 04:04:40 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-28 04:04:40 - core.assistance_node - INFO - 🎯 Demande d'assistance humaine détectée
+2025-09-28 04:04:59 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-28 04:05:13 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-28 04:05:13 - core.assistance_node - INFO - 🎯 Demande d'assistance humaine détectée
+2025-09-28 04:05:28 - root - INFO - ✅ System cleanup completed

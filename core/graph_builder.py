@@ -1,11 +1,12 @@
 from langgraph.graph import StateGraph, START, END
 from langgraph.checkpoint.postgres.aio import AsyncPostgresSaver
 from langchain_core.runnables import RunnableConfig
-from typing import Literal
+from typing import List, Dict, Any, Optional, Annotated, Literal
 
 from models.state_models import MultiCountryLegalState
 from core.router import CountryRouter
 from core.retriever import LegalRetriever
+from core.assistance_node import AssistanceNode
 from utils.helpers import dict_to_message_obj, message_obj_to_dict
 
 class GraphBuilder:
@@ -14,6 +15,7 @@ class GraphBuilder:
         self.router = router
         self.benin_retriever = benin_retriever
         self.madagascar_retriever = madagascar_retriever
+        self.assistance_node = AssistanceNode()
         self.llm = llm
         self.checkpointer = checkpointer
 
@@ -27,17 +29,43 @@ class GraphBuilder:
         workflow.add_node("madagascar_retrieval", self._madagascar_retrieval_node)
         workflow.add_node("unclear_route", self._unclear_route_node)
         workflow.add_node("response_generation", self._response_generation_node)
+        workflow.add_node("detect_assistance", self._detect_assistance_node)  # Changé ici
+        workflow.add_node("collect_email", self._collect_email_node)  # Changé ici
+        workflow.add_node("process_assistance", self._process_assistance_node)  # Changé ici
         
         # Add edges
         workflow.add_edge(START, "router")
         workflow.add_conditional_edges("router", self._route_by_country)
-        workflow.add_edge("benin_retrieval", "response_generation")
-        workflow.add_edge("madagascar_retrieval", "response_generation")
-        workflow.add_edge("unclear_route", "response_generation")
+        workflow.add_edge("benin_retrieval", "detect_assistance")  # Modifié
+        workflow.add_edge("madagascar_retrieval", "detect_assistance")  # Modifié
+        workflow.add_edge("unclear_route", "detect_assistance")  # Modifié
+        
+        # Flux d'assistance
+        workflow.add_conditional_edges("detect_assistance", self._route_after_detection)
+        workflow.add_edge("collect_email", "process_assistance")
+        workflow.add_edge("process_assistance", END)
+        
+        # Flux normal (pas d'assistance demandée)
         workflow.add_edge("response_generation", END)
         
         return workflow
 
+    # === NODES D'ASSISTANCE (WRAPPERS) ===
+    
+    async def _detect_assistance_node(self, state: MultiCountryLegalState, config: RunnableConfig) -> Dict[str, Any]:
+        """Wrapper pour la détection d'assistance"""
+        return await self.assistance_node.detect_assistance_intent(state, config)
+    
+    async def _collect_email_node(self, state: MultiCountryLegalState, config: RunnableConfig) -> Dict[str, Any]:
+        """Wrapper pour la collecte d'email"""
+        return await self.assistance_node.collect_email_info(state, config)
+    
+    async def _process_assistance_node(self, state: MultiCountryLegalState, config: RunnableConfig) -> Dict[str, Any]:
+        """Wrapper pour le traitement d'assistance"""
+        return await self.assistance_node.process_assistance_request(state, config)
+
+    # === NODES EXISTANTS (inchangés) ===
+    
     async def _router_node(self, state: MultiCountryLegalState, config: RunnableConfig) -> dict:
         """Route queries to appropriate country system"""
         s = state.model_dump()
@@ -126,15 +154,29 @@ class GraphBuilder:
         except Exception as e:
             return {"messages": [self._create_error_message(str(e))]}
 
-    # Helper methods
+    # === FONCTIONS DE ROUTAGE CORRIGÉES ===
+    
     def _route_by_country(self, state: MultiCountryLegalState) -> Literal["benin_retrieval", "madagascar_retrieval", "unclear_route"]:
+        """Route après le router"""
         decision = state.router_decision or "unclear"
         return {
             "benin": "benin_retrieval",
             "madagascar": "madagascar_retrieval",
             "unclear": "unclear_route"
         }[decision]
+    
+    def _route_after_detection(self, state: MultiCountryLegalState) -> Literal["collect_email", "response_generation"]:
+        """Route après détection d'assistance - CORRIGÉ"""
+        if state.assistance_requested:
+            if not state.user_email or not state.assistance_description:
+                return "collect_email"
+            else:
+                return "process_assistance"
+        else:
+            return "response_generation"
 
+    # === HELPER METHODS (inchangés) ===
+    
     def _get_last_human_message(self, messages: list) -> dict:
         for msg in reversed(messages):
             if msg.get("role", "").lower() in ("user", "human"):

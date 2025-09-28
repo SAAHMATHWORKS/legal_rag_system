@@ -140,17 +140,9 @@ async def main():
         session_id = f"test_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
         
         test_queries = [
-            # Test de jurisprudence (devrait trigger le fallback)
-            "Quelle est la jurisprudence sur l'article 125?",
-            
-            # Test mixte articles + jurisprudence  
-            "Y a-t-il des articles ou jurisprudence sur le divorce?",
-            
-            # Test Madagascar
-            "Que dit le droit malgache sur le divorce?",
-            
-            # Test sans article spécifique
-            "Quelles sont les conditions générales du divorce?",
+            "Je souhaite parler à un avocat humain concernant mon divorce",  # Détection directe
+            "Comment puis-je être assisté par un avocat ?",  # Détection keyword
+            "Contactez-moi à saahthibaut@gmail pour une consultation",  # Email dans le message
         ]
 
         for query in test_queries:
