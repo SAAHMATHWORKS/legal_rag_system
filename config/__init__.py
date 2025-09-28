@@ -1,0 +1,22 @@
+# config/__init__.py
+from .settings import settings
+from .constants import (
+    COUNTRY_PATTERNS,
+    ARTICLE_PATTERNS,
+    CATEGORY_KEYWORDS,
+    DOCUMENT_TYPE_KEYWORDS,
+    DOCUMENT_TYPE_DESCRIPTIONS,
+    LEGAL_CONTEXTS,
+    USER_TYPE_CONTEXTS
+)
+
+__all__ = [
+    'settings',
+    'COUNTRY_PATTERNS',
+    'ARTICLE_PATTERNS', 
+    'CATEGORY_KEYWORDS',
+    'DOCUMENT_TYPE_KEYWORDS',
+    'DOCUMENT_TYPE_DESCRIPTIONS',
+    'LEGAL_CONTEXTS',
+    'USER_TYPE_CONTEXTS'
+]

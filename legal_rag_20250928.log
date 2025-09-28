@@ -1,0 +1,204 @@
+2025-09-28 01:34:43 - root - INFO - ✅ Multi-Country Legal RAG System initialized successfully
+2025-09-28 01:34:49 - core.chat_manager - ERROR - Chat error for session test_20250928_013443
+Traceback (most recent call last):
+  File "/home/thibaut-gaetan/Documents/ACFAI/langgraph/legal_assistant/legal_rag_system/core/chat_manager.py", line 44, in chat
+    result = await self.graph.ainvoke(input_state, config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/thibaut-gaetan/Documents/ACFAI/langgraph/legal_assistant/.venv/lib/python3.12/site-packages/langgraph/pregel/main.py", line 3112, in ainvoke
+    async for chunk in self.astream(
+  File "/home/thibaut-gaetan/Documents/ACFAI/langgraph/legal_assistant/.venv/lib/python3.12/site-packages/langgraph/pregel/main.py", line 2936, in astream
+    while loop.tick():
+          ^^^^^^^^^^^
+  File "/home/thibaut-gaetan/Documents/ACFAI/langgraph/legal_assistant/.venv/lib/python3.12/site-packages/langgraph/pregel/_loop.py", line 455, in tick
+    self.tasks = prepare_next_tasks(
+                 ^^^^^^^^^^^^^^^^^^^
+  File "/home/thibaut-gaetan/Documents/ACFAI/langgraph/legal_assistant/.venv/lib/python3.12/site-packages/langgraph/pregel/_algo.py", line 467, in prepare_next_tasks
+    if task := prepare_single_task(
+               ^^^^^^^^^^^^^^^^^^^^
+  File "/home/thibaut-gaetan/Documents/ACFAI/langgraph/legal_assistant/.venv/lib/python3.12/site-packages/langgraph/pregel/_algo.py", line 803, in prepare_single_task
+    val = _proc_input(
+          ^^^^^^^^^^^^
+  File "/home/thibaut-gaetan/Documents/ACFAI/langgraph/legal_assistant/.venv/lib/python3.12/site-packages/langgraph/pregel/_algo.py", line 1051, in _proc_input
+    val = proc.mapper(val)
+          ^^^^^^^^^^^^^^^^
+  File "/home/thibaut-gaetan/Documents/ACFAI/langgraph/legal_assistant/.venv/lib/python3.12/site-packages/langgraph/graph/state.py", line 1230, in _coerce_state
+    return schema(**input)
+           ^^^^^^^^^^^^^^^
+  File "/home/thibaut-gaetan/Documents/ACFAI/langgraph/legal_assistant/.venv/lib/python3.12/site-packages/pydantic/main.py", line 253, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pydantic_core._pydantic_core.ValidationError: 1 validation error for MultiCountryLegalState
+legal_context.detected_country
+  Input should be a valid string [type=string_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+Before task with name 'router' and path '('__pregel_pull', 'router')'
+2025-09-28 01:34:49 - core.chat_manager - ERROR - Session test_20250928_013443: 1 validation error for MultiCountryLegalState
+legal_context.detected_country
+  Input should be a valid string [type=string_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+2025-09-28 01:34:50 - core.chat_manager - ERROR - Chat error for session test_20250928_013443
+Traceback (most recent call last):
+  File "/home/thibaut-gaetan/Documents/ACFAI/langgraph/legal_assistant/legal_rag_system/core/chat_manager.py", line 44, in chat
+    result = await self.graph.ainvoke(input_state, config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/thibaut-gaetan/Documents/ACFAI/langgraph/legal_assistant/.venv/lib/python3.12/site-packages/langgraph/pregel/main.py", line 3112, in ainvoke
+    async for chunk in self.astream(
+  File "/home/thibaut-gaetan/Documents/ACFAI/langgraph/legal_assistant/.venv/lib/python3.12/site-packages/langgraph/pregel/main.py", line 2883, in astream
+    async with AsyncPregelLoop(
+               ^^^^^^^^^^^^^^^^
+  File "/home/thibaut-gaetan/Documents/ACFAI/langgraph/legal_assistant/.venv/lib/python3.12/site-packages/langgraph/pregel/_loop.py", line 1225, in __aenter__
+    self.updated_channels = self._first(
+                            ^^^^^^^^^^^^
+  File "/home/thibaut-gaetan/Documents/ACFAI/langgraph/legal_assistant/.venv/lib/python3.12/site-packages/langgraph/pregel/_loop.py", line 640, in _first
+    discard_tasks = prepare_next_tasks(
+                    ^^^^^^^^^^^^^^^^^^^
+  File "/home/thibaut-gaetan/Documents/ACFAI/langgraph/legal_assistant/.venv/lib/python3.12/site-packages/langgraph/pregel/_algo.py", line 467, in prepare_next_tasks
+    if task := prepare_single_task(
+               ^^^^^^^^^^^^^^^^^^^^
+  File "/home/thibaut-gaetan/Documents/ACFAI/langgraph/legal_assistant/.venv/lib/python3.12/site-packages/langgraph/pregel/_algo.py", line 803, in prepare_single_task
+    val = _proc_input(
+          ^^^^^^^^^^^^
+  File "/home/thibaut-gaetan/Documents/ACFAI/langgraph/legal_assistant/.venv/lib/python3.12/site-packages/langgraph/pregel/_algo.py", line 1051, in _proc_input
+    val = proc.mapper(val)
+          ^^^^^^^^^^^^^^^^
+  File "/home/thibaut-gaetan/Documents/ACFAI/langgraph/legal_assistant/.venv/lib/python3.12/site-packages/langgraph/graph/state.py", line 1230, in _coerce_state
+    return schema(**input)
+           ^^^^^^^^^^^^^^^
+  File "/home/thibaut-gaetan/Documents/ACFAI/langgraph/legal_assistant/.venv/lib/python3.12/site-packages/pydantic/main.py", line 253, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pydantic_core._pydantic_core.ValidationError: 1 validation error for MultiCountryLegalState
+legal_context.detected_country
+  Input should be a valid string [type=string_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+Before task with name 'router' and path '('__pregel_pull', 'router')'
+2025-09-28 01:34:50 - core.chat_manager - ERROR - Session test_20250928_013443: 1 validation error for MultiCountryLegalState
+legal_context.detected_country
+  Input should be a valid string [type=string_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+2025-09-28 01:34:51 - core.chat_manager - ERROR - Chat error for session test_20250928_013443
+Traceback (most recent call last):
+  File "/home/thibaut-gaetan/Documents/ACFAI/langgraph/legal_assistant/legal_rag_system/core/chat_manager.py", line 44, in chat
+    result = await self.graph.ainvoke(input_state, config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/thibaut-gaetan/Documents/ACFAI/langgraph/legal_assistant/.venv/lib/python3.12/site-packages/langgraph/pregel/main.py", line 3112, in ainvoke
+    async for chunk in self.astream(
+  File "/home/thibaut-gaetan/Documents/ACFAI/langgraph/legal_assistant/.venv/lib/python3.12/site-packages/langgraph/pregel/main.py", line 2883, in astream
+    async with AsyncPregelLoop(
+               ^^^^^^^^^^^^^^^^
+  File "/home/thibaut-gaetan/Documents/ACFAI/langgraph/legal_assistant/.venv/lib/python3.12/site-packages/langgraph/pregel/_loop.py", line 1225, in __aenter__
+    self.updated_channels = self._first(
+                            ^^^^^^^^^^^^
+  File "/home/thibaut-gaetan/Documents/ACFAI/langgraph/legal_assistant/.venv/lib/python3.12/site-packages/langgraph/pregel/_loop.py", line 640, in _first
+    discard_tasks = prepare_next_tasks(
+                    ^^^^^^^^^^^^^^^^^^^
+  File "/home/thibaut-gaetan/Documents/ACFAI/langgraph/legal_assistant/.venv/lib/python3.12/site-packages/langgraph/pregel/_algo.py", line 467, in prepare_next_tasks
+    if task := prepare_single_task(
+               ^^^^^^^^^^^^^^^^^^^^
+  File "/home/thibaut-gaetan/Documents/ACFAI/langgraph/legal_assistant/.venv/lib/python3.12/site-packages/langgraph/pregel/_algo.py", line 803, in prepare_single_task
+    val = _proc_input(
+          ^^^^^^^^^^^^
+  File "/home/thibaut-gaetan/Documents/ACFAI/langgraph/legal_assistant/.venv/lib/python3.12/site-packages/langgraph/pregel/_algo.py", line 1051, in _proc_input
+    val = proc.mapper(val)
+          ^^^^^^^^^^^^^^^^
+  File "/home/thibaut-gaetan/Documents/ACFAI/langgraph/legal_assistant/.venv/lib/python3.12/site-packages/langgraph/graph/state.py", line 1230, in _coerce_state
+    return schema(**input)
+           ^^^^^^^^^^^^^^^
+  File "/home/thibaut-gaetan/Documents/ACFAI/langgraph/legal_assistant/.venv/lib/python3.12/site-packages/pydantic/main.py", line 253, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pydantic_core._pydantic_core.ValidationError: 1 validation error for MultiCountryLegalState
+legal_context.detected_country
+  Input should be a valid string [type=string_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+Before task with name 'router' and path '('__pregel_pull', 'router')'
+2025-09-28 01:34:51 - core.chat_manager - ERROR - Session test_20250928_013443: 1 validation error for MultiCountryLegalState
+legal_context.detected_country
+  Input should be a valid string [type=string_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+2025-09-28 01:34:51 - root - INFO - ✅ System cleanup completed
+2025-09-28 01:40:52 - root - INFO - ✅ Multi-Country Legal RAG System initialized successfully
+2025-09-28 01:40:52 - core.retriever - INFO - 📋 Filtre doc_type: articles
+2025-09-28 01:40:52 - core.retriever - INFO - 🔍 Recherche benin avec filtres: {'pays': 'Bénin', 'doc_type': 'articles'}
+2025-09-28 01:40:53 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-09-28 01:41:01 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-28 01:41:07 - core.retriever - INFO - 📋 Filtre doc_type: articles
+2025-09-28 01:41:07 - core.retriever - INFO - 🔍 Recherche benin avec filtres: {'pays': 'Bénin', 'doc_type': 'articles'}
+2025-09-28 01:41:08 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-09-28 01:41:11 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-28 01:41:20 - core.retriever - INFO - 📋 Filtre doc_type: articles
+2025-09-28 01:41:20 - core.retriever - INFO - 🏷️ Filtre catégorie: Droit de la famille
+2025-09-28 01:41:20 - core.retriever - INFO - 🔍 Recherche madagascar avec filtres: {'pays': 'Madagascar', 'doc_type': 'articles', 'categorie': 'Droit de la famille'}
+2025-09-28 01:41:21 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-09-28 01:41:28 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-28 01:41:33 - root - INFO - ✅ System cleanup completed
+2025-09-28 01:53:49 - root - INFO - ✅ Multi-Country Legal RAG System initialized successfully
+2025-09-28 01:53:49 - core.retriever - INFO - 📋 Filtre doc_type: case_study
+2025-09-28 01:53:49 - core.retriever - INFO - 🏷️ Filtre catégorie: Droit de la famille
+2025-09-28 01:53:49 - core.retriever - INFO - 🔍 Recherche benin avec filtres: {'pays': 'Bénin', 'doc_type': 'case_study', 'categorie': 'Droit de la famille'}
+2025-09-28 01:53:49 - core.retriever - INFO - 🔢 Articles détectés: []
+2025-09-28 01:53:49 - core.retriever - INFO - 📝 Requête enrichie: Quelle est la jurisprudence récente sur le divorce au Bénin?...
+2025-09-28 01:53:50 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-09-28 01:53:55 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-28 01:54:04 - core.retriever - INFO - 📋 Filtre doc_type: case_study
+2025-09-28 01:54:04 - core.retriever - INFO - 🏷️ Filtre catégorie: Droit de la famille
+2025-09-28 01:54:04 - core.retriever - INFO - 🔍 Recherche madagascar avec filtres: {'pays': 'Madagascar', 'doc_type': 'case_study', 'categorie': 'Droit de la famille'}
+2025-09-28 01:54:04 - core.retriever - INFO - 🔢 Articles détectés: []
+2025-09-28 01:54:04 - core.retriever - INFO - 📝 Requête enrichie: Donnez-moi un arrêt de la cour d'appel concernant l'héritage à Madagascar...
+2025-09-28 01:54:05 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-09-28 01:54:09 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-28 01:54:18 - core.retriever - INFO - 📋 Filtre doc_type: case_study
+2025-09-28 01:54:18 - core.retriever - INFO - 🔍 Recherche madagascar avec filtres: {'pays': 'Madagascar', 'doc_type': 'case_study'}
+2025-09-28 01:54:18 - core.retriever - INFO - 🔢 Articles détectés: []
+2025-09-28 01:54:18 - core.retriever - INFO - 📝 Requête enrichie: Comment la cour suprême a-t-elle jugé ce cas de droit familial?...
+2025-09-28 01:54:18 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-09-28 01:54:23 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-28 01:54:30 - core.retriever - INFO - 📋 Filtre doc_type: case_study
+2025-09-28 01:54:30 - core.retriever - INFO - 🏷️ Filtre catégorie: Droit de la famille
+2025-09-28 01:54:30 - core.retriever - INFO - 🔍 Recherche madagascar avec filtres: {'pays': 'Madagascar', 'doc_type': 'case_study', 'categorie': 'Droit de la famille'}
+2025-09-28 01:54:30 - core.retriever - INFO - 🔢 Articles détectés: []
+2025-09-28 01:54:30 - core.retriever - INFO - 📝 Requête enrichie: Y a-t-il des décisions de tribunal sur la garde d'enfants?...
+2025-09-28 01:54:31 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-09-28 01:54:36 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-28 01:54:43 - root - INFO - ✅ System cleanup completed
+2025-09-28 02:25:16 - root - INFO - ✅ Multi-Country Legal RAG System initialized successfully
+2025-09-28 02:25:17 - core.retriever - INFO - 🏷️ Filtre catégorie: Droit de la famille
+2025-09-28 02:25:17 - core.retriever - INFO - 📋 Filtre doc_type initial: case_study
+2025-09-28 02:25:17 - core.retriever - INFO - 🔍 Recherche benin avec filtres: {'pays': 'Bénin', 'doc_type': 'case_study', 'categorie': 'Droit de la famille'}
+2025-09-28 02:25:17 - core.retriever - INFO - 🔢 Articles détectés: []
+2025-09-28 02:25:17 - core.retriever - INFO - 📝 Requête enrichie: Quelle est la jurisprudence récente sur le divorce au Bénin?...
+2025-09-28 02:25:17 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-09-28 02:25:18 - core.retriever - INFO - 🔄 Fallback: Aucun case_study trouvé, recherche dans les articles
+2025-09-28 02:25:18 - core.retriever - INFO - 🔢 Articles détectés: []
+2025-09-28 02:25:18 - core.retriever - INFO - 📝 Requête enrichie: Quelle est la jurisprudence récente sur le divorce au Bénin?...
+2025-09-28 02:25:19 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-09-28 02:25:24 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-28 02:25:32 - root - INFO - ✅ System cleanup completed
+2025-09-28 02:32:22 - root - INFO - ✅ Multi-Country Legal RAG System initialized successfully
+2025-09-28 02:32:23 - core.retriever - INFO - 🏷️ Filtre catégorie: Droit de la famille
+2025-09-28 02:32:23 - core.retriever - INFO - 📋 Filtre doc_type initial: articles
+2025-09-28 02:32:23 - core.retriever - INFO - 🔍 Recherche benin avec filtres: {'pays': 'Bénin', 'doc_type': 'articles', 'categorie': 'Droit de la famille'}
+2025-09-28 02:32:23 - core.retriever - INFO - 🔢 Requête enrichie avec articles: ['125']
+2025-09-28 02:32:23 - core.retriever - INFO - 🔢 Articles détectés: ['125']
+2025-09-28 02:32:23 - core.retriever - INFO - 📝 Requête enrichie: article 125 Que dit l'article 125 sur le divorce au Bénin?...
+2025-09-28 02:32:24 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-09-28 02:32:29 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-28 02:32:38 - root - INFO - ✅ System cleanup completed
+2025-09-28 02:35:13 - root - INFO - ✅ Multi-Country Legal RAG System initialized successfully
+2025-09-28 02:35:15 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-28 02:35:29 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-28 02:35:39 - core.retriever - INFO - 🏷️ Filtre catégorie: Droit de la famille
+2025-09-28 02:35:39 - core.retriever - INFO - 📋 Filtre doc_type initial: articles
+2025-09-28 02:35:39 - core.retriever - INFO - 🔍 Recherche madagascar avec filtres: {'pays': 'Madagascar', 'doc_type': 'articles', 'categorie': 'Droit de la famille'}
+2025-09-28 02:35:39 - core.retriever - INFO - 🔢 Articles détectés: []
+2025-09-28 02:35:39 - core.retriever - INFO - 📝 Requête enrichie: Que dit le droit malgache sur le divorce?...
+2025-09-28 02:35:40 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-09-28 02:35:46 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-28 02:35:52 - core.retriever - INFO - 🏷️ Filtre catégorie: Droit de la famille
+2025-09-28 02:35:52 - core.retriever - INFO - 📋 Filtre doc_type initial: articles
+2025-09-28 02:35:52 - core.retriever - INFO - 🔍 Recherche madagascar avec filtres: {'pays': 'Madagascar', 'doc_type': 'articles', 'categorie': 'Droit de la famille'}
+2025-09-28 02:35:52 - core.retriever - INFO - 🔢 Articles détectés: []
+2025-09-28 02:35:52 - core.retriever - INFO - 📝 Requête enrichie: Quelles sont les conditions générales du divorce?...
+2025-09-28 02:35:53 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-09-28 02:36:00 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-28 02:36:06 - root - INFO - ✅ System cleanup completed
