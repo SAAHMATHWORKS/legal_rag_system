@@ -15,7 +15,7 @@ class LegalAssistanceEmailer:
     def __init__(self):
         self.email_address = os.getenv("EMAIL_ADDRESS")
         self.email_password = os.getenv("EMAIL_APP_PASSWORD")
-        self.lawyer_email = os.getenv("LAWYER_EMAIL", "lawyer_acfai@gmail.com")
+        self.lawyer_email = os.getenv("LAWYER_EMAIL", "fitahiana@acfai.org")
         self.smtp_server = "smtp.gmail.com"
         self.smtp_port = 587
         
@@ -25,7 +25,8 @@ class LegalAssistanceEmailer:
             "parler à un avocat", "avocat humain", "assistance humaine",
             "contactez-moi", "rappelez-moi", "assistance téléphonique",
             "besoin d'un avocat", "consultation juridique", "avocat réel",
-            "aide humaine", "contact humain", "échange avec un avocat"
+            "aide humaine", "contact humain", "échange avec un avocat",
+            "assisté", "assisté par", "être assisté"
         ]
         
         query_lower = query.lower()

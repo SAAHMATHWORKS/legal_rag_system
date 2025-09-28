@@ -209,3 +209,220 @@ legal_context.detected_country
 2025-09-28 04:05:13 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
 2025-09-28 04:05:13 - core.assistance_node - INFO - 🎯 Demande d'assistance humaine détectée
 2025-09-28 04:05:28 - root - INFO - ✅ System cleanup completed
+2025-09-28 05:11:51 - root - INFO - ✅ Multi-Country Legal RAG System initialized successfully
+2025-09-28 05:11:55 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-28 05:11:55 - core.assistance_node - INFO - 🎯 Demande d'assistance humaine détectée
+2025-09-28 05:12:15 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-28 05:12:15 - core.assistance_node - INFO - 🎯 Demande d'assistance humaine détectée
+2025-09-28 05:12:34 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-28 05:12:34 - core.assistance_node - INFO - 🎯 Demande d'assistance humaine détectée
+2025-09-28 05:12:51 - root - INFO - ✅ System cleanup completed
+2025-09-28 05:14:17 - root - INFO - ✅ Multi-Country Legal RAG System initialized successfully
+2025-09-28 05:14:18 - core.conversation_repair - INFO - 🔧 Conversation repair detected: misunderstanding
+2025-09-28 05:14:18 - core.conversation_repair - INFO - 🔧 Conversation repair detected: misunderstanding
+2025-09-28 05:14:20 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-28 05:14:29 - core.retriever - INFO - 🏷️ Filtre catégorie: Droit de la famille
+2025-09-28 05:14:29 - core.retriever - INFO - 📋 Filtre doc_type initial: articles
+2025-09-28 05:14:29 - core.retriever - INFO - 🔍 Recherche benin avec filtres: {'pays': 'Bénin', 'doc_type': 'articles', 'categorie': 'Droit de la famille'}
+2025-09-28 05:14:29 - core.retriever - INFO - 🔢 Articles détectés: []
+2025-09-28 05:14:29 - core.retriever - INFO - 📝 Requête enrichie: Quelles sont les lois sur le divorce au Bénin ?...
+2025-09-28 05:14:30 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-09-28 05:14:41 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-28 05:14:49 - core.retriever - INFO - 🏷️ Filtre catégorie: Droit de la famille
+2025-09-28 05:14:49 - core.retriever - INFO - 📋 Filtre doc_type initial: articles
+2025-09-28 05:14:49 - core.retriever - INFO - 🔍 Recherche benin avec filtres: {'pays': 'Bénin', 'doc_type': 'articles', 'categorie': 'Droit de la famille'}
+2025-09-28 05:14:49 - core.retriever - INFO - 🔢 Articles détectés: []
+2025-09-28 05:14:49 - core.retriever - INFO - 📝 Requête enrichie: Je souhaite parler à un avocat humain concernant mon divorce...
+2025-09-28 05:14:51 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-09-28 05:14:51 - core.assistance_node - INFO - 🎯 Demande d'assistance humaine détectée
+2025-09-28 05:15:11 - core.conversation_repair - INFO - 🔧 Conversation repair detected: rephrase
+2025-09-28 05:15:15 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-28 05:15:24 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-28 05:15:24 - core.assistance_node - INFO - 🎯 Demande d'assistance humaine détectée
+2025-09-28 05:15:30 - core.email_tool - INFO - ✅ Emails envoyés avec succès pour saahthibaut@gmail.com.com
+2025-09-28 05:15:30 - core.assistance_node - INFO - ✅ Demande d'assistance traitée pour saahthibaut@gmail.com.com
+2025-09-28 05:15:46 - root - INFO - ✅ System cleanup completed
+2025-09-28 05:18:01 - root - INFO - ✅ Multi-Country Legal RAG System initialized successfully
+2025-09-28 05:18:01 - core.conversation_repair - INFO - 🔧 Conversation repair detected: misunderstanding
+2025-09-28 05:18:01 - core.conversation_repair - INFO - 🔧 Conversation repair detected: misunderstanding
+2025-09-28 05:18:04 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-28 05:18:13 - core.retriever - INFO - 🏷️ Filtre catégorie: Droit de la famille
+2025-09-28 05:18:13 - core.retriever - INFO - 📋 Filtre doc_type initial: articles
+2025-09-28 05:18:13 - core.retriever - INFO - 🔍 Recherche benin avec filtres: {'pays': 'Bénin', 'doc_type': 'articles', 'categorie': 'Droit de la famille'}
+2025-09-28 05:18:13 - core.retriever - INFO - 🔢 Articles détectés: []
+2025-09-28 05:18:13 - core.retriever - INFO - 📝 Requête enrichie: Quelles sont les lois sur le divorce au Bénin ?...
+2025-09-28 05:18:14 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-09-28 05:18:21 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-28 05:18:32 - core.retriever - INFO - 🏷️ Filtre catégorie: Droit de la famille
+2025-09-28 05:18:32 - core.retriever - INFO - 📋 Filtre doc_type initial: articles
+2025-09-28 05:18:32 - core.retriever - INFO - 🔍 Recherche benin avec filtres: {'pays': 'Bénin', 'doc_type': 'articles', 'categorie': 'Droit de la famille'}
+2025-09-28 05:18:32 - core.retriever - INFO - 🔢 Articles détectés: []
+2025-09-28 05:18:32 - core.retriever - INFO - 📝 Requête enrichie: Je souhaite parler à un avocat humain concernant mon divorce...
+2025-09-28 05:18:32 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-09-28 05:18:33 - core.assistance_node - INFO - 🎯 Demande d'assistance humaine détectée
+2025-09-28 05:18:53 - core.conversation_repair - INFO - 🔧 Conversation repair detected: rephrase
+2025-09-28 05:18:56 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-28 05:19:05 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-28 05:19:05 - core.assistance_node - INFO - 🎯 Demande d'assistance humaine détectée
+2025-09-28 05:19:09 - core.email_tool - INFO - ✅ Emails envoyés avec succès pour saahthibaut@gmail.com
+2025-09-28 05:19:09 - core.assistance_node - INFO - ✅ Demande d'assistance traitée pour saahthibaut@gmail.com
+2025-09-28 05:19:24 - root - INFO - ✅ System cleanup completed
+2025-09-28 05:24:37 - root - INFO - ✅ System cleanup completed
+2025-09-28 05:24:53 - root - INFO - ✅ Multi-Country Legal RAG System initialized successfully
+2025-09-28 05:24:54 - core.conversation_repair - INFO - 🔧 Conversation repair detected: misunderstanding
+2025-09-28 05:24:54 - core.conversation_repair - INFO - 🔧 Conversation repair detected: misunderstanding
+2025-09-28 05:24:56 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-28 05:25:05 - core.retriever - INFO - 🏷️ Filtre catégorie: Droit de la famille
+2025-09-28 05:25:05 - core.retriever - INFO - 📋 Filtre doc_type initial: articles
+2025-09-28 05:25:05 - core.retriever - INFO - 🔍 Recherche benin avec filtres: {'pays': 'Bénin', 'doc_type': 'articles', 'categorie': 'Droit de la famille'}
+2025-09-28 05:25:05 - core.retriever - INFO - 🔢 Articles détectés: []
+2025-09-28 05:25:05 - core.retriever - INFO - 📝 Requête enrichie: Quelles sont les lois sur le divorce au Bénin ?...
+2025-09-28 05:25:06 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-09-28 05:25:18 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-28 05:25:25 - core.retriever - INFO - 🏷️ Filtre catégorie: Droit de la famille
+2025-09-28 05:25:25 - core.retriever - INFO - 📋 Filtre doc_type initial: articles
+2025-09-28 05:25:25 - core.retriever - INFO - 🔍 Recherche benin avec filtres: {'pays': 'Bénin', 'doc_type': 'articles', 'categorie': 'Droit de la famille'}
+2025-09-28 05:25:25 - core.retriever - INFO - 🔢 Articles détectés: []
+2025-09-28 05:25:25 - core.retriever - INFO - 📝 Requête enrichie: Je souhaite parler à un avocat humain concernant mon divorce...
+2025-09-28 05:25:25 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-09-28 05:25:26 - core.assistance_node - INFO - 🎯 Demande d'assistance humaine détectée
+2025-09-28 05:25:46 - core.conversation_repair - INFO - 🔧 Conversation repair detected: rephrase
+2025-09-28 05:25:49 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-28 05:25:58 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-28 05:25:58 - core.assistance_node - INFO - 🎯 Demande d'assistance humaine détectée
+2025-09-28 05:26:02 - core.email_tool - INFO - ✅ Emails envoyés avec succès pour fitahianarazafimahenina@gmail.com
+2025-09-28 05:26:02 - core.assistance_node - INFO - ✅ Demande d'assistance traitée pour fitahianarazafimahenina@gmail.com
+2025-09-28 05:26:18 - root - INFO - ✅ System cleanup completed
+2025-09-28 05:39:25 - root - INFO - ✅ Multi-Country Legal RAG System initialized successfully
+2025-09-28 05:39:25 - core.conversation_repair - INFO - 🔧 Conversation repair detected: misunderstanding
+2025-09-28 05:39:25 - core.conversation_repair - INFO - 🔧 Conversation repair detected: misunderstanding
+2025-09-28 05:39:27 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-28 05:39:36 - core.retriever - INFO - 🏷️ Filtre catégorie: Droit de la famille
+2025-09-28 05:39:36 - core.retriever - INFO - 📋 Filtre doc_type initial: articles
+2025-09-28 05:39:36 - core.retriever - INFO - 🔍 Recherche benin avec filtres: {'pays': 'Bénin', 'doc_type': 'articles', 'categorie': 'Droit de la famille'}
+2025-09-28 05:39:36 - core.retriever - INFO - 🔢 Articles détectés: []
+2025-09-28 05:39:36 - core.retriever - INFO - 📝 Requête enrichie: Quelles sont les lois sur le divorce au Bénin ?...
+2025-09-28 05:39:37 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-09-28 05:39:45 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-28 05:39:56 - core.retriever - INFO - 🏷️ Filtre catégorie: Droit de la famille
+2025-09-28 05:39:56 - core.retriever - INFO - 📋 Filtre doc_type initial: articles
+2025-09-28 05:39:56 - core.retriever - INFO - 🔍 Recherche benin avec filtres: {'pays': 'Bénin', 'doc_type': 'articles', 'categorie': 'Droit de la famille'}
+2025-09-28 05:39:56 - core.retriever - INFO - 🔢 Articles détectés: []
+2025-09-28 05:39:56 - core.retriever - INFO - 📝 Requête enrichie: Je souhaite parler à un avocat humain concernant mon divorce...
+2025-09-28 05:39:57 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-09-28 05:39:57 - core.assistance_node - INFO - 🎯 Demande d'assistance humaine détectée
+2025-09-28 05:40:17 - core.conversation_repair - INFO - 🔧 Conversation repair detected: rephrase
+2025-09-28 05:40:20 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-28 05:40:28 - root - INFO - ✅ System cleanup completed
+2025-09-28 05:47:14 - root - INFO - ✅ Multi-Country Legal RAG System initialized successfully
+2025-09-28 05:47:15 - core.conversation_repair - INFO - 🔧 Conversation repair detected: misunderstanding
+2025-09-28 05:47:15 - core.conversation_repair - INFO - 🔧 Conversation repair detected: misunderstanding
+2025-09-28 05:47:17 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-28 05:47:26 - core.retriever - INFO - 🏷️ Filtre catégorie: Droit de la famille
+2025-09-28 05:47:26 - core.retriever - INFO - 📋 Filtre doc_type initial: articles
+2025-09-28 05:47:26 - core.retriever - INFO - 🔍 Recherche benin avec filtres: {'pays': 'Bénin', 'doc_type': 'articles', 'categorie': 'Droit de la famille'}
+2025-09-28 05:47:26 - core.retriever - INFO - 🔢 Articles détectés: []
+2025-09-28 05:47:26 - core.retriever - INFO - 📝 Requête enrichie: Quelles sont les lois sur le divorce au Bénin ?...
+2025-09-28 05:47:27 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-09-28 05:47:35 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-28 05:47:45 - core.retriever - INFO - 🏷️ Filtre catégorie: Droit de la famille
+2025-09-28 05:47:45 - core.retriever - INFO - 📋 Filtre doc_type initial: articles
+2025-09-28 05:47:45 - core.retriever - INFO - 🔍 Recherche benin avec filtres: {'pays': 'Bénin', 'doc_type': 'articles', 'categorie': 'Droit de la famille'}
+2025-09-28 05:47:45 - core.retriever - INFO - 🔢 Articles détectés: []
+2025-09-28 05:47:45 - core.retriever - INFO - 📝 Requête enrichie: Je souhaite parler à un avocat humain concernant mon divorce...
+2025-09-28 05:47:46 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-09-28 05:47:46 - core.assistance_node - INFO - 🎯 Demande d'assistance humaine détectée
+2025-09-28 05:48:06 - core.conversation_repair - INFO - 🔧 Conversation repair detected: rephrase
+2025-09-28 05:48:10 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-28 05:48:17 - root - INFO - ✅ System cleanup completed
+2025-09-28 06:01:51 - root - INFO - ✅ Multi-Country Legal RAG System initialized successfully
+2025-09-28 06:01:52 - core.conversation_repair - INFO - 🔧 Conversation repair detected: misunderstanding
+2025-09-28 06:01:52 - core.conversation_repair - INFO - 🔧 Conversation repair detected: misunderstanding
+2025-09-28 06:02:04 - core.retriever - INFO - 🏷️ Filtre catégorie: Droit de la famille
+2025-09-28 06:02:04 - core.retriever - INFO - 📋 Filtre doc_type initial: articles
+2025-09-28 06:02:04 - core.retriever - INFO - 🔍 Recherche benin avec filtres: {'pays': 'Bénin', 'doc_type': 'articles', 'categorie': 'Droit de la famille'}
+2025-09-28 06:02:04 - core.retriever - INFO - 🔢 Articles détectés: []
+2025-09-28 06:02:04 - core.retriever - INFO - 📝 Requête enrichie: Quelles sont les lois sur le divorce au Bénin ?...
+2025-09-28 06:02:05 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-09-28 06:02:23 - core.retriever - INFO - 🏷️ Filtre catégorie: Droit de la famille
+2025-09-28 06:02:23 - core.retriever - INFO - 📋 Filtre doc_type initial: articles
+2025-09-28 06:02:23 - core.retriever - INFO - 🔍 Recherche benin avec filtres: {'pays': 'Bénin', 'doc_type': 'articles', 'categorie': 'Droit de la famille'}
+2025-09-28 06:02:23 - core.retriever - INFO - 🔢 Articles détectés: []
+2025-09-28 06:02:23 - core.retriever - INFO - 📝 Requête enrichie: Je souhaite parler à un avocat humain concernant mon divorce...
+2025-09-28 06:02:24 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-09-28 06:02:24 - core.assistance_node - INFO - 🎯 Demande d'assistance humaine détectée
+2025-09-28 06:02:45 - core.conversation_repair - INFO - 🔧 Conversation repair detected: rephrase
+2025-09-28 06:02:55 - root - INFO - ✅ System cleanup completed
+2025-09-28 06:08:01 - root - INFO - ✅ Multi-Country Legal RAG System initialized successfully
+2025-09-28 06:08:01 - core.conversation_repair - INFO - 🔧 Conversation repair detected: misunderstanding
+2025-09-28 06:08:01 - core.conversation_repair - INFO - 🔧 Conversation repair detected: misunderstanding
+2025-09-28 06:08:02 - psycopg.pool - WARNING - discarding closed connection: <psycopg.AsyncConnection [BAD] at 0x71f033a6e600>
+2025-09-28 06:08:02 - psycopg.pool - WARNING - discarding closed connection: <psycopg.AsyncConnection [BAD] at 0x71f0314013a0>
+2025-09-28 06:08:02 - psycopg.pool - WARNING - discarding closed connection: <psycopg.AsyncConnection [BAD] at 0x71f0314ef620>
+2025-09-28 06:08:09 - core.chat_manager - ERROR - Chat error for session test_20250928_060801
+Traceback (most recent call last):
+  File "/home/thibaut-gaetan/Documents/ACFAI/langgraph/legal_assistant/legal_rag_system/core/chat_manager.py", line 44, in chat
+    result = await self.graph.ainvoke(MultiCountryLegalState(**input_state), config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/thibaut-gaetan/Documents/ACFAI/langgraph/legal_assistant/.venv/lib/python3.12/site-packages/langgraph/pregel/main.py", line 3112, in ainvoke
+    async for chunk in self.astream(
+  File "/home/thibaut-gaetan/Documents/ACFAI/langgraph/legal_assistant/.venv/lib/python3.12/site-packages/langgraph/pregel/main.py", line 2883, in astream
+    async with AsyncPregelLoop(
+               ^^^^^^^^^^^^^^^^
+  File "/home/thibaut-gaetan/Documents/ACFAI/langgraph/legal_assistant/.venv/lib/python3.12/site-packages/langgraph/pregel/_loop.py", line 1245, in __aexit__
+    return await exit_task
+           ^^^^^^^^^^^^^^^
+  File "/home/thibaut-gaetan/anaconda3/lib/python3.12/contextlib.py", line 754, in __aexit__
+    raise exc_details[1]
+  File "/home/thibaut-gaetan/anaconda3/lib/python3.12/contextlib.py", line 737, in __aexit__
+    cb_suppress = await cb(*exc_details)
+                  ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/thibaut-gaetan/Documents/ACFAI/langgraph/legal_assistant/.venv/lib/python3.12/site-packages/langgraph/pregel/_executor.py", line 210, in __aexit__
+    raise exc
+  File "/home/thibaut-gaetan/Documents/ACFAI/langgraph/legal_assistant/.venv/lib/python3.12/site-packages/langgraph/pregel/_loop.py", line 1132, in _checkpointer_put_after_previous
+    await prev
+  File "/home/thibaut-gaetan/Documents/ACFAI/langgraph/legal_assistant/.venv/lib/python3.12/site-packages/langgraph/pregel/_loop.py", line 1132, in _checkpointer_put_after_previous
+    await prev
+  File "/home/thibaut-gaetan/Documents/ACFAI/langgraph/legal_assistant/.venv/lib/python3.12/site-packages/langgraph/pregel/_loop.py", line 1132, in _checkpointer_put_after_previous
+    await prev
+  File "/home/thibaut-gaetan/Documents/ACFAI/langgraph/legal_assistant/.venv/lib/python3.12/site-packages/langgraph/pregel/_loop.py", line 1134, in _checkpointer_put_after_previous
+    await cast(BaseCheckpointSaver, self.checkpointer).aput(
+  File "/home/thibaut-gaetan/Documents/ACFAI/langgraph/legal_assistant/.venv/lib/python3.12/site-packages/langgraph/checkpoint/postgres/aio.py", line 280, in aput
+    await cur.execute(
+  File "/home/thibaut-gaetan/Documents/ACFAI/langgraph/legal_assistant/.venv/lib/python3.12/site-packages/psycopg/cursor_async.py", line 97, in execute
+    raise ex.with_traceback(None)
+psycopg.errors.AdminShutdown: terminating connection due to administrator command
+2025-09-28 06:08:09 - core.chat_manager - ERROR - Session test_20250928_060801: terminating connection due to administrator command
+2025-09-28 06:08:10 - core.retriever - INFO - 🏷️ Filtre catégorie: Droit de la famille
+2025-09-28 06:08:10 - core.retriever - INFO - 📋 Filtre doc_type initial: articles
+2025-09-28 06:08:10 - core.retriever - INFO - 🔍 Recherche benin avec filtres: {'pays': 'Bénin', 'doc_type': 'articles', 'categorie': 'Droit de la famille'}
+2025-09-28 06:08:10 - core.retriever - INFO - 🔢 Articles détectés: []
+2025-09-28 06:08:10 - core.retriever - INFO - 📝 Requête enrichie: Quelles sont les lois sur le divorce au Bénin ?...
+2025-09-28 06:08:11 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-09-28 06:08:32 - core.retriever - INFO - 🏷️ Filtre catégorie: Droit de la famille
+2025-09-28 06:08:32 - core.retriever - INFO - 📋 Filtre doc_type initial: articles
+2025-09-28 06:08:32 - core.retriever - INFO - 🔍 Recherche benin avec filtres: {'pays': 'Bénin', 'doc_type': 'articles', 'categorie': 'Droit de la famille'}
+2025-09-28 06:08:32 - core.retriever - INFO - 🔢 Articles détectés: []
+2025-09-28 06:08:32 - core.retriever - INFO - 📝 Requête enrichie: Je souhaite parler à un avocat humain concernant mon divorce...
+2025-09-28 06:08:33 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-09-28 06:08:33 - core.assistance_node - INFO - 🎯 Demande d'assistance humaine détectée
+2025-09-28 06:08:57 - core.conversation_repair - INFO - 🔧 Conversation repair detected: rephrase
+2025-09-28 06:09:08 - root - INFO - ✅ System cleanup completed
+2025-09-28 06:12:30 - root - INFO - ✅ Multi-Country Legal RAG System initialized successfully
+2025-09-28 06:12:30 - core.conversation_repair - INFO - 🔧 Conversation repair detected: misunderstanding
+2025-09-28 06:12:30 - core.conversation_repair - INFO - 🔧 Conversation repair detected: misunderstanding
+2025-09-28 06:12:42 - core.retriever - INFO - 🏷️ Filtre catégorie: Droit de la famille
+2025-09-28 06:12:42 - core.retriever - INFO - 📋 Filtre doc_type initial: articles
+2025-09-28 06:12:42 - core.retriever - INFO - 🔍 Recherche benin avec filtres: {'pays': 'Bénin', 'doc_type': 'articles', 'categorie': 'Droit de la famille'}
+2025-09-28 06:12:42 - core.retriever - INFO - 🔢 Articles détectés: []
+2025-09-28 06:12:42 - core.retriever - INFO - 📝 Requête enrichie: Quelles sont les lois sur le divorce au Bénin ?...
+2025-09-28 06:12:43 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-09-28 06:13:02 - core.retriever - INFO - 🏷️ Filtre catégorie: Droit de la famille
+2025-09-28 06:13:02 - core.retriever - INFO - 📋 Filtre doc_type initial: articles
+2025-09-28 06:13:02 - core.retriever - INFO - 🔍 Recherche benin avec filtres: {'pays': 'Bénin', 'doc_type': 'articles', 'categorie': 'Droit de la famille'}
+2025-09-28 06:13:02 - core.retriever - INFO - 🔢 Articles détectés: []
+2025-09-28 06:13:02 - core.retriever - INFO - 📝 Requête enrichie: Je souhaite parler à un avocat humain concernant mon divorce...
+2025-09-28 06:13:03 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-09-28 06:13:04 - core.assistance_node - INFO - 🎯 Demande d'assistance humaine détectée
+2025-09-28 06:13:25 - core.conversation_repair - INFO - 🔧 Conversation repair detected: rephrase
+2025-09-28 06:13:36 - root - INFO - ✅ System cleanup completed

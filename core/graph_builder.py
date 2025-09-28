@@ -7,7 +7,10 @@ from models.state_models import MultiCountryLegalState
 from core.router import CountryRouter
 from core.retriever import LegalRetriever
 from core.assistance_node import AssistanceNode
+from core.conversation_repair import ConversationRepair 
+
 from utils.helpers import dict_to_message_obj, message_obj_to_dict
+
 
 class GraphBuilder:
     def __init__(self, router: CountryRouter, benin_retriever: LegalRetriever, 
@@ -16,39 +19,97 @@ class GraphBuilder:
         self.benin_retriever = benin_retriever
         self.madagascar_retriever = madagascar_retriever
         self.assistance_node = AssistanceNode()
+        self.conversation_repair = ConversationRepair()
         self.llm = llm
         self.checkpointer = checkpointer
 
     def build_graph(self) -> StateGraph:
-        """Build the complete LangGraph workflow"""
         workflow = StateGraph(MultiCountryLegalState)
         
         # Add nodes
+        workflow.add_node("conversation_repair", self._conversation_repair_node)
         workflow.add_node("router", self._router_node)
         workflow.add_node("benin_retrieval", self._benin_retrieval_node)
         workflow.add_node("madagascar_retrieval", self._madagascar_retrieval_node)
         workflow.add_node("unclear_route", self._unclear_route_node)
         workflow.add_node("response_generation", self._response_generation_node)
-        workflow.add_node("detect_assistance", self._detect_assistance_node)  # Changé ici
-        workflow.add_node("collect_email", self._collect_email_node)  # Changé ici
-        workflow.add_node("process_assistance", self._process_assistance_node)  # Changé ici
+        workflow.add_node("detect_assistance", self._detect_assistance_node)
+        workflow.add_node("collect_email", self._collect_email_node)
+        workflow.add_node("process_assistance", self._process_assistance_node)
         
-        # Add edges
-        workflow.add_edge(START, "router")
+        # Modified edges - CHECK REPAIR FIRST
+        workflow.add_edge(START, "conversation_repair")
+        workflow.add_conditional_edges("conversation_repair", self._route_after_repair_check)
         workflow.add_conditional_edges("router", self._route_by_country)
-        workflow.add_edge("benin_retrieval", "detect_assistance")  # Modifié
-        workflow.add_edge("madagascar_retrieval", "detect_assistance")  # Modifié
-        workflow.add_edge("unclear_route", "detect_assistance")  # Modifié
+        workflow.add_edge("benin_retrieval", "detect_assistance")
+        workflow.add_edge("madagascar_retrieval", "detect_assistance")
+        workflow.add_edge("unclear_route", "detect_assistance")
         
-        # Flux d'assistance
-        workflow.add_conditional_edges("detect_assistance", self._route_after_detection)
+        # Rest of the edges
+        workflow.add_conditional_edges(
+            "detect_assistance", 
+            self._route_after_detection,
+            {
+                "collect_email": "collect_email",
+                "response_generation": "response_generation",
+                "process_assistance": "process_assistance"
+            }
+        )
+        
         workflow.add_edge("collect_email", "process_assistance")
         workflow.add_edge("process_assistance", END)
-        
-        # Flux normal (pas d'assistance demandée)
         workflow.add_edge("response_generation", END)
         
         return workflow
+
+    # NEW: Conversation Repair Node
+    async def _conversation_repair_node(self, state: MultiCountryLegalState, config: RunnableConfig) -> Dict[str, Any]:
+        """Handle conversation repair and meta-communication"""
+        s = state.model_dump()
+        
+        last_human = self._get_last_human_message(s.get("messages", []))
+        if not last_human:
+            return {"repair_type": None, "messages": []}
+        
+        user_query = last_human.get("content", "")
+        print(f"🔍 DEBUG: Checking repair intent for: '{user_query}'")
+        repair_type = self.conversation_repair.detect_repair_intent(user_query, s.get("messages", []))
+        print(f"🔍 DEBUG: Detected repair type: {repair_type}")
+        
+        if repair_type:
+            repair_response = self.conversation_repair.generate_repair_response(repair_type, s.get("messages", []))
+            print(f"🔍 DEBUG: Generated repair response: {repair_response[:100]}...")
+            return {
+                "repair_type": repair_type,
+                "messages": [{
+                    "role": "assistant",
+                    "content": repair_response,
+                    "meta": {"is_repair_response": True}
+                }]
+            }
+        
+        return {"repair_type": None, "messages": []}
+
+    # NEW: Routing after repair check
+    def _route_after_repair_check(self, state: MultiCountryLegalState) -> Literal["router", "response_generation"]:
+        """Route based on repair detection"""
+        print(f"🔍 DEBUG: Repair check - repair_type: {state.repair_type}")
+        if state.repair_type:
+            print("🔍 DEBUG: Routing to response_generation (repair detected)")
+            return "response_generation"
+        else:
+            print("🔍 DEBUG: Routing to router (no repair)")
+            return "router"
+    
+    def _has_repair_response(self, messages: list) -> bool:
+        """Check if there's already a repair response in messages"""
+        if not messages:
+            return False
+        for msg in reversed(messages):
+            if (msg.get("role") == "assistant" and 
+                msg.get("meta", {}).get("is_repair_response")):
+                return True
+        return False
 
     # === NODES D'ASSISTANCE (WRAPPERS) ===
     
@@ -64,7 +125,7 @@ class GraphBuilder:
         """Wrapper pour le traitement d'assistance"""
         return await self.assistance_node.process_assistance_request(state, config)
 
-    # === NODES EXISTANTS (inchangés) ===
+    # === NODES EXISTANTS ===
     
     async def _router_node(self, state: MultiCountryLegalState, config: RunnableConfig) -> dict:
         """Route queries to appropriate country system"""
@@ -107,7 +168,6 @@ class GraphBuilder:
         user_query = last_human.get("content", "")
         
         try:
-            # MODIFICATION ICI : Récupération du message supplémentaire
             enhanced_docs, detected_articles, applied_filters, supplemental_message = retriever.smart_legal_query(user_query, country)
             search_results = retriever.format_search_results(
                 user_query, enhanced_docs, detected_articles, applied_filters, country, supplemental_message
@@ -141,6 +201,17 @@ class GraphBuilder:
         """Generate final response using retrieved context"""
         s = state.model_dump()
         
+        # 🆕 CRITICAL FIX: Check if we already have a repair response
+        # Must check ALL messages, not just rely on repair_type
+        if self._has_repair_response(s.get("messages", [])):
+            print("🔍 DEBUG: Using existing repair response, skipping LLM call")
+            return {
+                    "messages": [],  # No new messages needed
+                    "repair_type": None,  # 🆕 Clear repair state
+                    "original_query": None,
+                    "misunderstanding_count": 0
+                } # No new messages needed
+        
         # Check if clarification was already provided
         if self._has_clarification_message(s.get("messages", [])):
             return {"messages": []}
@@ -154,7 +225,7 @@ class GraphBuilder:
         except Exception as e:
             return {"messages": [self._create_error_message(str(e))]}
 
-    # === FONCTIONS DE ROUTAGE CORRIGÉES ===
+    # === FONCTIONS DE ROUTAGE ===
     
     def _route_by_country(self, state: MultiCountryLegalState) -> Literal["benin_retrieval", "madagascar_retrieval", "unclear_route"]:
         """Route après le router"""
@@ -165,17 +236,20 @@ class GraphBuilder:
             "unclear": "unclear_route"
         }[decision]
     
-    def _route_after_detection(self, state: MultiCountryLegalState) -> Literal["collect_email", "response_generation"]:
-        """Route après détection d'assistance - CORRIGÉ"""
-        if state.assistance_requested:
-            if not state.user_email or not state.assistance_description:
-                return "collect_email"
-            else:
-                return "process_assistance"
-        else:
+    def _route_after_detection(self, state: MultiCountryLegalState) -> Literal["collect_email", "response_generation", "process_assistance"]:
+        """Route après détection d'assistance"""
+        if not state.assistance_requested:
             return "response_generation"
+        
+        has_email = bool(state.user_email)
+        has_description = bool(state.assistance_description)
+        
+        if not has_email or not has_description:
+            return "collect_email"
+        else:
+            return "process_assistance"
 
-    # === HELPER METHODS (inchangés) ===
+    # === HELPER METHODS ===
     
     def _get_last_human_message(self, messages: list) -> dict:
         for msg in reversed(messages):

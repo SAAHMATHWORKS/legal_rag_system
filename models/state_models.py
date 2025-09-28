@@ -24,6 +24,11 @@ class MultiCountryLegalState(BaseModel):
     assistance_description: Optional[str] = None
     email_status: Optional[str] = None  # "pending", "sent", "error"
 
+    # NEW: Conversation repair tracking
+    repair_type: Optional[str] = None
+    original_query: Optional[str] = None
+    misunderstanding_count: int = Field(default=0)
+
 class RoutingResult(BaseModel):
     country: Literal["benin", "madagascar", "unclear"]
     confidence: Literal["high", "medium", "low"]

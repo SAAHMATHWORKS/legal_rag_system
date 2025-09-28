@@ -136,23 +136,35 @@ async def main():
             print("❌ System initialization failed")
             return
 
-        # Test conversation
+        # Test conversation - UPDATED TEST QUERIES
         session_id = f"test_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
         
         test_queries = [
-            "Je souhaite parler à un avocat humain concernant mon divorce",  # Détection directe
-            "Comment puis-je être assisté par un avocat ?",  # Détection keyword
-            "Contactez-moi à saahthibaut@gmail pour une consultation",  # Email dans le message
+            # Test 1: Conversation repair (misunderstanding)
+            "Vous n'avez pas compris ce que je demande",
+            
+            # Test 2: Normal legal query with country
+            "Quelles sont les lois sur le divorce au Bénin ?",
+            
+            # Test 3: Assistance request
+            "Je souhaite parler à un avocat humain concernant mon divorce",
+            
+            # Test 4: Another repair (rephrase request)
+            "Pouvez-vous reformuler votre réponse plus simplement ?",
+            
         ]
 
-        for query in test_queries:
-            print(f"\n👤 User: {query}")
+        for i, query in enumerate(test_queries, 1):
+            print(f"\n{'='*60}")
+            print(f"TEST {i}: {query}")
+            print(f"{'='*60}")
+            print(f"👤 User: {query}")
             response = await system.chat(query, session_id)
             print(f"🤖 Assistant: {response}")
             print("-" * 80)
             
-            # Small delay
-            await asyncio.sleep(0.5)
+            # Small delay between queries
+            await asyncio.sleep(1)
 
         # Show statistics
         stats = system.chat_manager.get_global_stats()
@@ -164,6 +176,8 @@ async def main():
 
     except Exception as e:
         logging.error(f"Error in main: {e}")
+        import traceback
+        traceback.print_exc()
     finally:
         await system.cleanup()
 
