@@ -24,13 +24,13 @@ ARTICLE_PATTERNS = [
 
 # Legal domain categories
 CATEGORY_KEYWORDS = {
-    "mariage": "Droit de la famille",
-    "divorce": "Droit de la famille", 
-    "héritage": "Droit de la famille",
-    "succession": "Droit de la famille",
-    "adoption": "Droit de la famille",
-    "enfant": "Droit de la famille",
-    "pension": "Droit de la famille",
+    "mariage": "Code des personnes et de la famille",
+    "divorce": "Code des personnes et de la famille", 
+    "héritage": "Code des personnes et de la famille",
+    "succession": "Code des personnes et de la famille",
+    "adoption": "Code des personnes et de la famille",
+    "enfant": "Code des personnes et de la famille",
+    "pension": "Code des personnes et de la famille",
     
     "infraction": "Droit pénal",
     "délit": "Droit pénal",

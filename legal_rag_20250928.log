@@ -426,3 +426,218 @@ psycopg.errors.AdminShutdown: terminating connection due to administrator comman
 2025-09-28 06:13:04 - core.assistance_node - INFO - 🎯 Demande d'assistance humaine détectée
 2025-09-28 06:13:25 - core.conversation_repair - INFO - 🔧 Conversation repair detected: rephrase
 2025-09-28 06:13:36 - root - INFO - ✅ System cleanup completed
+2025-09-28 23:34:24 - root - INFO - ✅ Multi-Country Legal RAG System initialized successfully
+2025-09-28 23:34:24 - core.conversation_repair - INFO - 🔧 Conversation repair detected: misunderstanding
+2025-09-28 23:34:24 - core.conversation_repair - INFO - 🔧 Conversation repair detected: misunderstanding
+2025-09-28 23:34:28 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-28 23:34:36 - core.retriever - INFO - 🏷️ Filtre catégorie: Droit de la famille
+2025-09-28 23:34:36 - core.retriever - INFO - 📋 Filtre doc_type initial: articles
+2025-09-28 23:34:36 - core.retriever - INFO - 🔍 Recherche benin avec filtres: {'pays': 'Bénin', 'doc_type': 'articles', 'categorie': 'Droit de la famille'}
+2025-09-28 23:34:36 - core.retriever - INFO - 🔢 Articles détectés: []
+2025-09-28 23:34:36 - core.retriever - INFO - 📝 Requête enrichie: Quelles sont les lois sur le divorce au Bénin ?...
+2025-09-28 23:34:38 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-09-28 23:34:48 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-28 23:34:59 - core.retriever - INFO - 🏷️ Filtre catégorie: Droit de la famille
+2025-09-28 23:34:59 - core.retriever - INFO - 📋 Filtre doc_type initial: articles
+2025-09-28 23:34:59 - core.retriever - INFO - 🔍 Recherche benin avec filtres: {'pays': 'Bénin', 'doc_type': 'articles', 'categorie': 'Droit de la famille'}
+2025-09-28 23:34:59 - core.retriever - INFO - 🔢 Articles détectés: []
+2025-09-28 23:34:59 - core.retriever - INFO - 📝 Requête enrichie: Je souhaite parler à un avocat humain concernant mon divorce...
+2025-09-28 23:35:00 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-09-28 23:35:01 - core.assistance_node - INFO - 🎯 Demande d'assistance humaine détectée
+2025-09-28 23:35:22 - core.conversation_repair - INFO - 🔧 Conversation repair detected: rephrase
+2025-09-28 23:35:35 - root - INFO - ✅ System cleanup completed
+2025-09-28 23:57:36 - root - INFO - ✅ Multi-Country Legal RAG System initialized successfully
+2025-09-28 23:57:36 - core.conversation_repair - INFO - 🔧 Conversation repair detected: misunderstanding
+2025-09-28 23:57:36 - core.conversation_repair - INFO - 🔧 Conversation repair detected: misunderstanding
+2025-09-28 23:57:36 - core.graph_builder - INFO - Generated repair response for type 'misunderstanding': Je m'excuse pour ce malentendu. 
+
+🔍 **Pour mieux vous aider :**
+- Pourriez préciser si votre questio...
+2025-09-28 23:57:36 - core.graph_builder - INFO - Using existing misunderstanding repair response, skipping LLM call
+2025-09-28 23:57:36 - core.graph_builder - INFO - Generating AI response with LLM
+2025-09-28 23:57:38 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-28 23:57:38 - core.graph_builder - INFO - Generated response: Je m'excuse pour ce malentendu. Pourriez-vous reformuler votre question ou préciser le sujet sur leq...
+2025-09-28 23:57:48 - core.graph_builder - INFO - Routing query: 'Pouvez-vous expliquer cela plus simplement ?...'
+2025-09-28 23:57:51 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-28 23:57:51 - core.graph_builder - INFO - Router decision: unclear (low) - llm_analysis
+2025-09-28 23:57:51 - core.graph_builder - INFO - Handling unclear route - requesting clarification
+2025-09-28 23:57:51 - core.graph_builder - INFO - Clarification message already provided
+2025-09-28 23:58:06 - core.conversation_repair - INFO - 🔧 Conversation repair detected: clarification
+2025-09-28 23:58:06 - core.graph_builder - INFO - Generated repair response for type 'clarification': 💡 **Je peux clarifier !**
+
+Pour que je puisse vous expliquer plus clairement :
+- **Quel terme ou con...
+2025-09-28 23:58:07 - core.graph_builder - INFO - Using existing clarification repair response, skipping LLM call
+2025-09-28 23:58:07 - core.graph_builder - INFO - Generating AI response with LLM
+2025-09-28 23:58:09 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-28 23:58:09 - core.graph_builder - INFO - Generated response: Je suis désolé si ma réponse précédente n'était pas claire. Pourriez-vous me dire quel aspect vous s...
+2025-09-28 23:58:17 - core.graph_builder - INFO - Routing query: 'Quelles sont les conditions du divorce au Bénin ?...'
+2025-09-28 23:58:17 - core.graph_builder - INFO - Router decision: benin (high) - pattern_matching
+2025-09-28 23:58:17 - core.graph_builder - INFO - Performing benin retrieval for: 'Quelles sont les conditions du divorce au Bénin ?...'
+2025-09-28 23:58:17 - core.retriever - INFO - 🏷️ Filtre catégorie: Droit de la famille
+2025-09-28 23:58:17 - core.retriever - INFO - 📋 Filtre doc_type initial: articles
+2025-09-28 23:58:17 - core.retriever - INFO - 🔍 Recherche benin avec filtres: {'pays': 'Bénin', 'doc_type': 'articles', 'categorie': 'Droit de la famille'}
+2025-09-28 23:58:17 - core.retriever - INFO - 🔢 Articles détectés: []
+2025-09-28 23:58:17 - core.retriever - INFO - 📝 Requête enrichie: Quelles sont les conditions du divorce au Bénin ?...
+2025-09-28 23:58:19 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-09-28 23:58:21 - core.graph_builder - INFO - Retrieved 0 documents for benin, detected 0 articles
+2025-09-28 23:58:21 - core.graph_builder - INFO - Generating AI response with LLM
+2025-09-28 23:58:29 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-28 23:58:29 - core.graph_builder - INFO - Generated response: Au Bénin, les conditions du divorce sont régies par le Code des personnes et de la famille. Voici le...
+2025-09-28 23:58:39 - core.graph_builder - INFO - Routing query: 'Quelles sont les conditions du mariage civil au Bé...'
+2025-09-28 23:58:39 - core.graph_builder - INFO - Router decision: benin (high) - pattern_matching
+2025-09-28 23:58:39 - core.graph_builder - INFO - Performing benin retrieval for: 'Quelles sont les conditions du mariage civil au Bé...'
+2025-09-28 23:58:39 - core.retriever - INFO - 🏷️ Filtre catégorie: Droit de la famille
+2025-09-28 23:58:39 - core.retriever - INFO - 📋 Filtre doc_type initial: articles
+2025-09-28 23:58:39 - core.retriever - INFO - 🔍 Recherche benin avec filtres: {'pays': 'Bénin', 'doc_type': 'articles', 'categorie': 'Droit de la famille'}
+2025-09-28 23:58:39 - core.retriever - INFO - 🔢 Articles détectés: []
+2025-09-28 23:58:39 - core.retriever - INFO - 📝 Requête enrichie: Quelles sont les conditions du mariage civil au Bénin ?...
+2025-09-28 23:58:54 - openai._base_client - INFO - Retrying request to /embeddings in 0.441116 seconds
+2025-09-28 23:58:56 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-09-28 23:58:57 - core.graph_builder - INFO - Retrieved 0 documents for benin, detected 0 articles
+2025-09-28 23:58:57 - core.graph_builder - INFO - Generating AI response with LLM
+2025-09-28 23:59:05 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-28 23:59:05 - core.graph_builder - INFO - Generated response: Les conditions du mariage civil au Bénin sont régies par le Code des personnes et de la famille. Voi...
+2025-09-28 23:59:14 - core.graph_builder - INFO - Routing query: 'Comment créer une entreprise à Madagascar ?...'
+2025-09-28 23:59:14 - core.graph_builder - INFO - Router decision: madagascar (high) - pattern_matching
+2025-09-28 23:59:14 - core.graph_builder - INFO - Performing madagascar retrieval for: 'Comment créer une entreprise à Madagascar ?...'
+2025-09-28 23:59:14 - core.retriever - INFO - 🏷️ Filtre catégorie: Droit commercial
+2025-09-28 23:59:14 - core.retriever - INFO - 📋 Filtre doc_type initial: articles
+2025-09-28 23:59:14 - core.retriever - INFO - 🔍 Recherche madagascar avec filtres: {'pays': 'Madagascar', 'doc_type': 'articles', 'categorie': 'Droit commercial'}
+2025-09-28 23:59:14 - core.retriever - INFO - 🔢 Articles détectés: []
+2025-09-28 23:59:14 - core.retriever - INFO - 📝 Requête enrichie: Comment créer une entreprise à Madagascar ?...
+2025-09-28 23:59:15 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-09-28 23:59:15 - core.graph_builder - INFO - Retrieved 0 documents for madagascar, detected 0 articles
+2025-09-28 23:59:15 - core.graph_builder - INFO - Generating AI response with LLM
+2025-09-28 23:59:25 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-28 23:59:25 - core.graph_builder - INFO - Generated response: Pour créer une entreprise à Madagascar, il est important de suivre plusieurs étapes et de respecter ...
+2025-09-28 23:59:33 - core.graph_builder - INFO - Routing query: 'Quels sont les droits des travailleurs à Madagasca...'
+2025-09-28 23:59:33 - core.graph_builder - INFO - Router decision: madagascar (high) - pattern_matching
+2025-09-28 23:59:33 - core.graph_builder - INFO - Performing madagascar retrieval for: 'Quels sont les droits des travailleurs à Madagasca...'
+2025-09-28 23:59:33 - core.retriever - INFO - 📋 Filtre doc_type initial: articles
+2025-09-28 23:59:33 - core.retriever - INFO - 🔍 Recherche madagascar avec filtres: {'pays': 'Madagascar', 'doc_type': 'articles'}
+2025-09-28 23:59:33 - core.retriever - INFO - 🔢 Articles détectés: []
+2025-09-28 23:59:33 - core.retriever - INFO - 📝 Requête enrichie: Quels sont les droits des travailleurs à Madagascar ?...
+2025-09-28 23:59:34 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-09-28 23:59:34 - core.graph_builder - INFO - Retrieved 0 documents for madagascar, detected 0 articles
+2025-09-28 23:59:34 - core.graph_builder - INFO - Generating AI response with LLM
+2025-09-28 23:59:43 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-28 23:59:43 - core.graph_builder - INFO - Generated response: Les droits des travailleurs à Madagascar sont principalement régis par le Code du travail. Voici un ...
+2025-09-28 23:59:52 - core.graph_builder - INFO - Routing query: 'Quels sont les droits des employés ?...'
+2025-09-28 23:59:52 - core.graph_builder - INFO - Router decision: madagascar (medium) - conversation_context
+2025-09-28 23:59:52 - core.graph_builder - INFO - Performing madagascar retrieval for: 'Quels sont les droits des employés ?...'
+2025-09-28 23:59:52 - core.retriever - INFO - 📋 Filtre doc_type initial: articles
+2025-09-28 23:59:52 - core.retriever - INFO - 🔍 Recherche madagascar avec filtres: {'pays': 'Madagascar', 'doc_type': 'articles'}
+2025-09-28 23:59:52 - core.retriever - INFO - 🔢 Articles détectés: []
+2025-09-28 23:59:52 - core.retriever - INFO - 📝 Requête enrichie: Quels sont les droits des employés ?...
+2025-09-28 23:59:53 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-09-28 23:59:53 - core.graph_builder - INFO - Retrieved 0 documents for madagascar, detected 0 articles
+2025-09-28 23:59:53 - core.graph_builder - INFO - Generating AI response with LLM
+2025-09-29 00:00:04 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-29 00:00:04 - core.graph_builder - INFO - Generated response: Les droits des employés à Madagascar sont principalement définis par le Code du travail et comprenne...
+2025-09-29 00:00:11 - core.graph_builder - INFO - Routing query: 'J'ai besoin d'un avocat pour mon divorce au Bénin...'
+2025-09-29 00:00:11 - core.graph_builder - INFO - Router decision: benin (high) - pattern_matching
+2025-09-29 00:00:11 - core.graph_builder - INFO - Performing benin retrieval for: 'J'ai besoin d'un avocat pour mon divorce au Bénin...'
+2025-09-29 00:00:11 - core.retriever - INFO - 🏷️ Filtre catégorie: Droit de la famille
+2025-09-29 00:00:11 - core.retriever - INFO - 📋 Filtre doc_type initial: articles
+2025-09-29 00:00:11 - core.retriever - INFO - 🔍 Recherche benin avec filtres: {'pays': 'Bénin', 'doc_type': 'articles', 'categorie': 'Droit de la famille'}
+2025-09-29 00:00:11 - core.retriever - INFO - 🔢 Articles détectés: []
+2025-09-29 00:00:11 - core.retriever - INFO - 📝 Requête enrichie: J'ai besoin d'un avocat pour mon divorce au Bénin...
+2025-09-29 00:00:12 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-09-29 00:00:12 - core.graph_builder - INFO - Retrieved 0 documents for benin, detected 0 articles
+2025-09-29 00:00:12 - core.assistance_node - INFO - 🎯 Demande d'assistance humaine détectée
+2025-09-29 00:00:33 - core.graph_builder - INFO - Routing query: 'Je veux parler à un avocat spécialisé à Madagascar...'
+2025-09-29 00:00:33 - core.graph_builder - INFO - Router decision: madagascar (high) - pattern_matching
+2025-09-29 00:00:33 - core.graph_builder - INFO - Performing madagascar retrieval for: 'Je veux parler à un avocat spécialisé à Madagascar...'
+2025-09-29 00:00:33 - core.retriever - INFO - 📋 Filtre doc_type initial: articles
+2025-09-29 00:00:33 - core.retriever - INFO - 🔍 Recherche madagascar avec filtres: {'pays': 'Madagascar', 'doc_type': 'articles'}
+2025-09-29 00:00:33 - core.retriever - INFO - 🔢 Articles détectés: []
+2025-09-29 00:00:33 - core.retriever - INFO - 📝 Requête enrichie: Je veux parler à un avocat spécialisé à Madagascar...
+2025-09-29 00:00:34 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-09-29 00:00:35 - core.graph_builder - INFO - Retrieved 0 documents for madagascar, detected 0 articles
+2025-09-29 00:00:35 - core.assistance_node - INFO - 🎯 Demande d'assistance humaine détectée
+2025-09-29 00:00:56 - core.graph_builder - INFO - Routing query: 'Je veux parler à un humain...'
+2025-09-29 00:00:56 - core.graph_builder - INFO - Router decision: madagascar (medium) - conversation_context
+2025-09-29 00:00:56 - core.graph_builder - INFO - Performing madagascar retrieval for: 'Je veux parler à un humain...'
+2025-09-29 00:00:56 - core.retriever - INFO - 📋 Filtre doc_type initial: articles
+2025-09-29 00:00:56 - core.retriever - INFO - 🔍 Recherche madagascar avec filtres: {'pays': 'Madagascar', 'doc_type': 'articles'}
+2025-09-29 00:00:56 - core.retriever - INFO - 🔢 Articles détectés: []
+2025-09-29 00:00:56 - core.retriever - INFO - 📝 Requête enrichie: Je veux parler à un humain...
+2025-09-29 00:00:57 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-09-29 00:00:57 - core.graph_builder - INFO - Retrieved 0 documents for madagascar, detected 0 articles
+2025-09-29 00:00:57 - core.graph_builder - INFO - Generating AI response with LLM
+2025-09-29 00:01:02 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-29 00:01:02 - core.graph_builder - INFO - Generated response: Je comprends que vous souhaitez parler à un humain. Malheureusement, je ne peux pas vous mettre dire...
+2025-09-29 00:01:15 - core.graph_builder - INFO - Routing query: 'Contactez-moi à test@example.com pour une consulta...'
+2025-09-29 00:01:15 - core.graph_builder - INFO - Router decision: madagascar (medium) - conversation_context
+2025-09-29 00:01:15 - core.graph_builder - INFO - Performing madagascar retrieval for: 'Contactez-moi à test@example.com pour une consulta...'
+2025-09-29 00:01:15 - core.retriever - INFO - 📋 Filtre doc_type initial: articles
+2025-09-29 00:01:15 - core.retriever - INFO - 🔍 Recherche madagascar avec filtres: {'pays': 'Madagascar', 'doc_type': 'articles'}
+2025-09-29 00:01:15 - core.retriever - INFO - 🔢 Articles détectés: []
+2025-09-29 00:01:15 - core.retriever - INFO - 📝 Requête enrichie: Contactez-moi à test@example.com pour une consultation...
+2025-09-29 00:01:16 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-09-29 00:01:16 - core.graph_builder - INFO - Retrieved 0 documents for madagascar, detected 0 articles
+2025-09-29 00:01:16 - core.assistance_node - INFO - 🎯 Demande d'assistance humaine détectée
+2025-09-29 00:01:21 - core.email_tool - INFO - ✅ Emails envoyés avec succès pour test@example.com
+2025-09-29 00:01:21 - core.assistance_node - INFO - ✅ Demande d'assistance traitée pour test@example.com
+2025-09-29 00:01:39 - core.graph_builder - INFO - Routing query: 'Et concernant la garde des enfants dans ce cas ?...'
+2025-09-29 00:01:39 - core.graph_builder - INFO - Router decision: madagascar (medium) - conversation_context
+2025-09-29 00:01:39 - core.graph_builder - INFO - Performing madagascar retrieval for: 'Et concernant la garde des enfants dans ce cas ?...'
+2025-09-29 00:01:39 - core.retriever - INFO - 🏷️ Filtre catégorie: Droit de la famille
+2025-09-29 00:01:39 - core.retriever - INFO - 📋 Filtre doc_type initial: case_study
+2025-09-29 00:01:39 - core.retriever - INFO - 🔍 Recherche madagascar avec filtres: {'pays': 'Madagascar', 'doc_type': 'case_study', 'categorie': 'Droit de la famille'}
+2025-09-29 00:01:39 - core.retriever - INFO - 🔢 Articles détectés: []
+2025-09-29 00:01:39 - core.retriever - INFO - 📝 Requête enrichie: Et concernant la garde des enfants dans ce cas ?...
+2025-09-29 00:01:40 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-09-29 00:01:41 - core.retriever - INFO - 🔄 Fallback: Aucun case_study trouvé, recherche dans les articles
+2025-09-29 00:01:41 - core.retriever - INFO - 🔢 Articles détectés: []
+2025-09-29 00:01:41 - core.retriever - INFO - 📝 Requête enrichie: Et concernant la garde des enfants dans ce cas ?...
+2025-09-29 00:01:41 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-09-29 00:01:42 - core.graph_builder - INFO - Retrieved 0 documents for madagascar, detected 0 articles
+2025-09-29 00:01:42 - core.graph_builder - INFO - Generating AI response with LLM
+2025-09-29 00:01:47 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-29 00:01:47 - core.graph_builder - INFO - Generated response: La garde des enfants lors d'un divorce à Madagascar est régie par le Code civil et d'autres lois rel...
+2025-09-29 00:02:00 - core.conversation_repair - INFO - 🔧 Conversation repair detected: misunderstanding
+2025-09-29 00:02:00 - core.conversation_repair - INFO - 🔧 Conversation repair detected: clarification
+2025-09-29 00:02:00 - core.graph_builder - INFO - Generated repair response for type 'misunderstanding': Je m'excuse si je n'ai pas bien compris votre demande précédente sur "Et concernant la garde des enf...
+2025-09-29 00:02:00 - core.graph_builder - INFO - Using existing misunderstanding repair response, skipping LLM call
+2025-09-29 00:02:00 - core.graph_builder - INFO - Generating AI response with LLM
+2025-09-29 00:02:12 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-29 00:02:12 - core.graph_builder - INFO - Generated response: Le divorce à Madagascar est régi par le Code civil malgache. Voici un aperçu des principales étapes ...
+2025-09-29 00:02:15 - core.conversation_repair - INFO - 🔧 Conversation repair detected: misunderstanding
+2025-09-29 00:02:15 - core.conversation_repair - INFO - 🔧 Conversation repair detected: misunderstanding
+2025-09-29 00:02:15 - core.conversation_repair - INFO - 🔧 Conversation repair detected: clarification
+2025-09-29 00:02:15 - core.conversation_repair - INFO - 🔧 Conversation repair detected: misunderstanding
+2025-09-29 00:02:15 - core.graph_builder - INFO - Generated repair response for type 'misunderstanding': Je m'excuse si je n'ai pas bien compris votre demande précédente sur "Et concernant la garde des enf...
+2025-09-29 00:02:15 - core.graph_builder - INFO - Using existing misunderstanding repair response, skipping LLM call
+2025-09-29 00:02:15 - core.graph_builder - INFO - Generating AI response with LLM
+2025-09-29 00:02:29 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-29 00:02:29 - core.graph_builder - INFO - Generated response: Les lois sur l'héritage au Bénin sont principalement régies par le Code des personnes et de la famil...
+2025-09-29 00:02:32 - core.graph_builder - WARNING - Empty user query in router
+2025-09-29 00:02:32 - core.graph_builder - INFO - Handling unclear route - requesting clarification
+2025-09-29 00:02:32 - core.graph_builder - INFO - Clarification message already provided
+2025-09-29 00:02:51 - core.graph_builder - INFO - Routing query: 'loi...'
+2025-09-29 00:02:51 - core.graph_builder - INFO - Router decision: benin (medium) - conversation_context
+2025-09-29 00:02:51 - core.graph_builder - INFO - Performing benin retrieval for: 'loi...'
+2025-09-29 00:02:51 - core.retriever - INFO - 📋 Filtre doc_type initial: articles
+2025-09-29 00:02:51 - core.retriever - INFO - 🔍 Recherche benin avec filtres: {'pays': 'Bénin', 'doc_type': 'articles'}
+2025-09-29 00:02:51 - core.retriever - INFO - 🔢 Articles détectés: []
+2025-09-29 00:02:51 - core.retriever - INFO - 📝 Requête enrichie: loi...
+2025-09-29 00:02:52 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-09-29 00:02:52 - core.graph_builder - INFO - Retrieved 0 documents for benin, detected 0 articles
+2025-09-29 00:02:52 - core.graph_builder - INFO - Generating AI response with LLM
+2025-09-29 00:03:02 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-29 00:03:02 - core.graph_builder - INFO - Generated response: Au Bénin, le droit est principalement régi par le Code des personnes et de la famille, ainsi que par...
+2025-09-29 00:03:12 - core.graph_builder - INFO - Routing query: 'Quel temps fait-il aujourd'hui ?...'
+2025-09-29 00:03:12 - core.graph_builder - INFO - Router decision: benin (medium) - conversation_context
+2025-09-29 00:03:12 - core.graph_builder - INFO - Performing benin retrieval for: 'Quel temps fait-il aujourd'hui ?...'
+2025-09-29 00:03:12 - core.retriever - INFO - 📋 Filtre doc_type initial: articles
+2025-09-29 00:03:12 - core.retriever - INFO - 🔍 Recherche benin avec filtres: {'pays': 'Bénin', 'doc_type': 'articles'}
+2025-09-29 00:03:12 - core.retriever - INFO - 🔢 Articles détectés: []
+2025-09-29 00:03:12 - core.retriever - INFO - 📝 Requête enrichie: Quel temps fait-il aujourd'hui ?...
+2025-09-29 00:03:12 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-09-29 00:03:13 - core.graph_builder - INFO - Retrieved 0 documents for benin, detected 0 articles
+2025-09-29 00:03:13 - core.graph_builder - INFO - Generating AI response with LLM
+2025-09-29 00:03:14 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-29 00:03:14 - core.graph_builder - INFO - Generated response: Je suis désolé, mais je ne peux pas fournir d'informations sur la météo actuelle. Je vous recommande...
+2025-09-29 00:03:31 - root - INFO - ✅ System cleanup completed

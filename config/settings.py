@@ -25,8 +25,8 @@ class Settings:
     EMBEDDING_KEY = "vecteur_embedding"
     
     # Collections
-    BENIN_COLLECTION = "legal_document"
-    MADAGASCAR_COLLECTION = "legal_document_madagascar"
+    BENIN_COLLECTION = "legal_documents"
+    MADAGASCAR_COLLECTION = "legal_documents_madagascar"
     DATABASE_NAME = "legal_db"
     
     # Search Parameters

@@ -1,0 +1,182 @@
+[
+  {
+    "category": "🔧 CONVERSATION REPAIR",
+    "test_name": "Misunderstanding Repair",
+    "query": "Vous n'avez pas compris ma question précédente",
+    "expected": "Should detect misunderstanding and provide clarification",
+    "response": "Je m'excuse pour ce malentendu. \n\n🔍 **Pour mieux vous aider :**\n- Pourriez préciser si votre question concerne le **droit béninois** ou **malgache** ?\n- Souhaitez-vous que je recherche des articles de loi ou des décisions de justice ?\n\nN'hésitez pas à reformuler votre demande !",
+    "response_time": 13.849942445755005,
+    "status": "✅ PASS",
+    "error": null
+  },
+  {
+    "category": "🔧 CONVERSATION REPAIR",
+    "test_name": "Rephrase Request",
+    "query": "Pouvez-vous expliquer cela plus simplement ?",
+    "expected": "Should detect rephrase request and simplify previous response",
+    "response": "Je ne peux pas déterminer de quel pays vous parlez. Pourriez-vous préciser si votre question concerne le droit du **Bénin** ou de **Madagascar** ?",
+    "response_time": 18.095144987106323,
+    "status": "✅ PASS",
+    "error": null
+  },
+  {
+    "category": "🔧 CONVERSATION REPAIR",
+    "test_name": "Clarification Request",
+    "query": "Je ne comprends pas votre réponse",
+    "expected": "Should detect need for clarification",
+    "response": "💡 **Je peux clarifier !**\n\nPour que je puisse vous expliquer plus clairement :\n- **Quel terme ou concept n'était pas clair ?**\n- **Quelle partie de ma réponse avez-vous trouvée confuse ?**\n- **Souhaitez-vous un exemple concret ?**\n\nN'hésitez pas à être précis !",
+    "response_time": 12.236318111419678,
+    "status": "✅ PASS",
+    "error": null
+  },
+  {
+    "category": "⚖️ LEGAL QUERIES",
+    "test_name": "Benin Family Law - Divorce",
+    "query": "Quelles sont les conditions du divorce au Bénin ?",
+    "expected": "Should route to Benin and retrieve family law information",
+    "response": "Au Bénin, le divorce est régi par le Code des personnes et de la famille. Voici les principales conditions et procédures pour obtenir un divorce :\n\n1. **Motifs de divorce** : Le divorce peut être demandé pour plusieurs raisons, notamment :\n   - La séparation de fait pendant au moins deux ans.\n   - L'adultère.\n   - La violence conjugale.\n   - L'abandon du domicile conjugal.\n   - L'incompatibilité d'humeur.\n\n2. **Types de divorce** :\n   - **Divorce par consentement mutuel** : Les deux époux s'accordent sur la décision de divorcer et sur les modalités (garde des enfants, partage des biens, etc.).\n   - **Divorce pour faute** : Un époux demande le divorce en raison des fautes de l'autre (adultère, violence, etc.).\n\n3. **Procédure** :\n   - La demande de divorce doit être introduite devant le tribunal compétent.\n   - Il est souvent conseillé de passer par un avocat pour faciliter la procédure.\n   - Le tribunal peut ordonner une médiation pour tenter de réconcilier les époux avant de statuer sur le divorce.\n\n4. **Effets du divorce** :\n   - Le divorce entraîne la dissolution du mariage et peut avoir des conséquences sur la garde des enfants, le partage des biens, et les obligations alimentaires.\n\nIl est recommandé de consulter un avocat spécialisé pour obtenir des conseils adaptés à chaque situation particulière.",
+    "response_time": 19.49959111213684,
+    "status": "✅ PASS",
+    "error": null
+  },
+  {
+    "category": "⚖️ LEGAL QUERIES",
+    "test_name": "Benin Family Law - Marriage",
+    "query": "Quelles sont les conditions du mariage civil au Bénin ?",
+    "expected": "Should route to Benin and retrieve marriage information",
+    "response": "Au Bénin, le mariage civil est régi par le Code des personnes et de la famille. Voici les principales conditions et exigences pour contracter un mariage civil :\n\n1. **Âge minimum** : \n   - Les deux époux doivent avoir au moins 18 ans. Toutefois, des exceptions peuvent être faites avec l'autorisation des parents ou tuteurs.\n\n2. **Capacité juridique** : \n   - Les futurs époux doivent être capables juridiquement, c'est-à-dire qu'ils ne doivent pas être sous tutelle ou curatelle.\n\n3. **Consentement** : \n   - Le consentement des deux parties est essentiel. Le mariage ne peut être contracté sans le consentement libre et éclairé des époux.\n\n4. **Absence de liens de parenté** : \n   - Les futurs époux ne doivent pas être liés par des liens de parenté ou d'alliance prohibés par la loi (par exemple, entre frères et sœurs, ou entre parents proches).\n\n5. **Documents requis** : \n   - Les futurs époux doivent fournir certains documents, tels que :\n     - Une copie de l'acte de naissance.\n     - Une pièce d'identité (carte d'identité ou passeport).\n     - Un certificat de célibat ou de non-remariage.\n     - D'autres documents peuvent être exigés selon les circonstances (comme un certificat médical).\n\n6. **Publication des bans** : \n   - Avant le mariage, une publication des bans est généralement effectuée pour informer le public de l'intention de se marier. Cela permet à toute personne ayant un motif légitime de s'opposer au mariage de le faire.\n\n7. **Célébration du mariage** : \n   - Le mariage civil doit être célébré par un officier de l'état civil dans une mairie ou un bureau désigné.\n\nIl est conseillé de se renseigner auprès des autorités locales ou d'un avocat pour obtenir des informations précises et à jour sur les exigences spécifiques, car elles peuvent varier selon les localités.",
+    "response_time": 18.206289529800415,
+    "status": "✅ PASS",
+    "error": null
+  },
+  {
+    "category": "⚖️ LEGAL QUERIES",
+    "test_name": "Madagascar Commercial Law",
+    "query": "Comment créer une entreprise à Madagascar ?",
+    "expected": "Should route to Madagascar and retrieve commercial law info",
+    "response": "Créer une entreprise à Madagascar implique plusieurs étapes administratives et juridiques. Voici un guide général sur le processus :\n\n### 1. **Choisir le type d'entreprise**\n   - **Société à Responsabilité Limitée (SARL)** : Adaptée pour les petites et moyennes entreprises.\n   - **Société Anonyme (SA)** : Pour les grandes entreprises, nécessitant un capital social minimum.\n   - **Entreprise Individuelle** : Pour les entrepreneurs individuels.\n\n### 2. **Élaborer un plan d'affaires**\n   - Un plan d'affaires solide est essentiel pour définir votre projet, vos objectifs, votre marché cible, et vos prévisions financières.\n\n### 3. **Choisir un nom commercial**\n   - Le nom de l'entreprise doit être unique et ne pas être déjà utilisé par une autre société. Vous pouvez vérifier la disponibilité auprès du Registre du Commerce.\n\n### 4. **Rassembler les documents nécessaires**\n   - **Pièces d'identité** : Copies des pièces d'identité des fondateurs.\n   - **Justificatif de domicile** : Preuve de résidence des fondateurs.\n   - **Statuts de l'entreprise** : Rédaction des statuts qui définissent le fonctionnement de l'entreprise.\n   - **Plan de financement** : Détails sur le capital initial et les sources de financement.\n\n### 5. **Enregistrer l'entreprise**\n   - **Registre du Commerce et des Sociétés (RCS)** : Déposer les statuts et les documents requis au RCS pour obtenir un numéro d'immatriculation.\n   - **Obtention d'un numéro d'identification fiscale (NIF)** : Nécessaire pour les obligations fiscales.\n\n### 6. **Ouvrir un compte bancaire professionnel**\n   - Ouvrir un compte au nom de l'entreprise pour y déposer le capital social et gérer les finances de l'entreprise.\n\n### 7. **Obtenir les licences et permis nécessaires**\n   - Selon le secteur d'activité, des licences ou permis spécifiques peuvent être requis (par exemple, pour le commerce, l'industrie, ou les services).\n\n### 8. **S'inscrire à la Caisse Nationale de Sécurité Sociale (CNSS)**\n   - Si vous prévoyez d'embaucher des employés, vous devez les enregistrer à la CNSS pour les cotisations sociales.\n\n### 9. **Respecter les obligations fiscales**\n   - En tant qu'entreprise, vous devrez vous conformer aux obligations fiscales, y compris la déclaration et le paiement des impôts.\n\n### 10. **Tenir une comptabilité**\n   - Il est important de tenir une comptabilité régulière et de respecter les normes comptables en vigueur.\n\n### Conseils supplémentaires :\n- **Consulter un avocat ou un expert-comptable** : Il est souvent utile de se faire accompagner par des professionnels pour naviguer dans les aspects juridiques et fiscaux.\n- **Se renseigner sur les aides et subventions** : Certaines organisations peuvent offrir des aides aux entrepreneurs.\n\nIl est recommandé de vérifier les exigences spécifiques auprès des autorités locales ou des organismes compétents, car les réglementations peuvent évoluer.",
+    "response_time": 23.512644290924072,
+    "status": "✅ PASS",
+    "error": null
+  },
+  {
+    "category": "⚖️ LEGAL QUERIES",
+    "test_name": "Madagascar Labor Law",
+    "query": "Quels sont les droits des travailleurs à Madagascar ?",
+    "expected": "Should route to Madagascar and retrieve labor law info",
+    "response": "À Madagascar, les droits des travailleurs sont principalement régis par le Code du travail, qui établit un cadre légal pour la protection des droits des employés. Voici un aperçu des principaux droits des travailleurs à Madagascar :\n\n### 1. **Droit à un contrat de travail**\n   - Les travailleurs ont le droit de recevoir un contrat de travail écrit qui précise les conditions d'emploi, y compris la durée, le salaire, et les responsabilités.\n\n### 2. **Droit à un salaire équitable**\n   - Les travailleurs ont droit à un salaire minimum, qui est fixé par la loi. Le salaire doit être payé régulièrement et à temps.\n\n### 3. **Droit à des conditions de travail sûres et saines**\n   - Les employeurs sont tenus de garantir un environnement de travail sûr et sain, en respectant les normes de sécurité et de santé au travail.\n\n### 4. **Droit à la protection contre la discrimination**\n   - Les travailleurs ne doivent pas être discriminés en raison de leur sexe, race, religion, origine, ou toute autre caractéristique personnelle.\n\n### 5. **Droit à la liberté d'association**\n   - Les travailleurs ont le droit de s'organiser et de former des syndicats pour défendre leurs intérêts. Ils peuvent également participer à des négociations collectives.\n\n### 6. **Droit à des congés**\n   - Les travailleurs ont droit à des congés payés, y compris des congés annuels, des congés de maternité, et des congés de maladie.\n\n### 7. **Droit à la protection contre le licenciement abusif**\n   - Les travailleurs ne peuvent être licenciés sans motif valable. En cas de licenciement, ils ont droit à une indemnité, sauf en cas de faute grave.\n\n### 8. **Droit à la formation professionnelle**\n   - Les travailleurs ont le droit d'accéder à des formations pour améliorer leurs compétences et leur employabilité.\n\n### 9. **Droit à la sécurité sociale**\n   - Les travailleurs ont droit à une couverture sociale, y compris des prestations de santé, des allocations familiales, et des pensions de retraite.\n\n### 10. **Droit à la vie privée**\n   - Les travailleurs ont droit au respect de leur vie privée, y compris la protection de leurs données personnelles.\n\n### 11. **Droit à la négociation collective**\n   - Les syndicats ont le droit de négocier des conventions collectives au nom des travailleurs pour améliorer les conditions de travail et les salaires.\n\n### Conclusion\nIl est important pour les travailleurs à Madagascar de connaître leurs droits et de les faire respecter. En cas de violation de ces droits, les travailleurs peuvent se tourner vers les syndicats, les organisations de défense des droits des travailleurs, ou les autorités compétentes pour obtenir de l'aide.",
+    "response_time": 18.277451992034912,
+    "status": "✅ PASS",
+    "error": null
+  },
+  {
+    "category": "⚖️ LEGAL QUERIES",
+    "test_name": "Unclear Country Context",
+    "query": "Quels sont les droits des employés ?",
+    "expected": "Should ask for country clarification",
+    "response": "Les droits des employés varient d'un pays à l'autre, mais il existe des principes fondamentaux qui sont généralement reconnus au niveau international. Voici un aperçu des droits des employés qui sont souvent protégés par la législation du travail dans de nombreux pays :\n\n### 1. **Droit à un contrat de travail**\n   - Les employés ont le droit de recevoir un contrat de travail écrit qui définit les termes et conditions de leur emploi, y compris le salaire, les heures de travail, et les responsabilités.\n\n### 2. **Droit à un salaire équitable**\n   - Les employés ont droit à un salaire juste et équitable, qui respecte le salaire minimum légal et les conditions de rémunération convenues.\n\n### 3. **Droit à des conditions de travail sûres et saines**\n   - Les employeurs doivent garantir un environnement de travail sûr et sain, en respectant les normes de sécurité et de santé au travail.\n\n### 4. **Droit à la non-discrimination**\n   - Les employés ne doivent pas être discriminés en raison de leur sexe, race, religion, origine, âge, handicap, ou toute autre caractéristique personnelle.\n\n### 5. **Droit à la liberté d'association**\n   - Les employés ont le droit de s'organiser, de former des syndicats, et de participer à des activités syndicales pour défendre leurs intérêts.\n\n### 6. **Droit à des congés**\n   - Les employés ont droit à des congés payés, y compris des congés annuels, des congés de maternité/paternité, et des congés de maladie.\n\n### 7. **Droit à la protection contre le licenciement abusif**\n   - Les employés ne peuvent être licenciés sans motif valable. En cas de licenciement, ils ont droit à une indemnité, sauf en cas de faute grave.\n\n### 8. **Droit à la formation professionnelle**\n   - Les employés ont le droit d'accéder à des formations pour améliorer leurs compétences et leur employabilité.\n\n### 9. **Droit à la sécurité sociale**\n   - Les employés ont droit à une couverture sociale, y compris des prestations de santé, des allocations familiales, et des pensions de retraite.\n\n### 10. **Droit à la vie privée**\n   - Les employés ont droit au respect de leur vie privée, y compris la protection de leurs données personnelles.\n\n### 11. **Droit à la négociation collective**\n   - Les syndicats ont le droit de négocier des conventions collectives au nom des employés pour améliorer les conditions de travail et les salaires.\n\n### 12. **Droit à la protection des dénonciateurs**\n   - Les employés qui signalent des comportements illégaux ou contraires à l'éthique au sein de l'entreprise doivent être protégés contre les représailles.\n\n### Conclusion\nIl est essentiel pour les employés de connaître leurs droits et de les faire respecter. En cas de violation de ces droits, ils peuvent se tourner vers des syndicats, des organisations de défense des droits des travailleurs, ou des autorités compétentes pour obtenir de l'aide. Les lois spécifiques peuvent varier, il est donc important de se référer à la législation du travail en vigueur dans le pays concerné.",
+    "response_time": 17.423264026641846,
+    "status": "✅ PASS",
+    "error": null
+  },
+  {
+    "category": "🆘 HUMAN ASSISTANCE",
+    "test_name": "Lawyer Request with Benin Context",
+    "query": "J'ai besoin d'un avocat pour mon divorce au Bénin",
+    "expected": "Should detect assistance request and ask for email",
+    "response": "🔔 **Demande d'assistance juridique humaine**\n\nJe comprends que vous souhaitez être assisté(e) par un avocat humain. Pour cela, j'ai besoin de :\n\n1. **Votre adresse email** 📧\n2. **Une brève description** de la manière dont vous souhaitez être assisté(e)\n\nPar exemple :\n- \"J'ai besoin d'une consultation téléphonique sur le droit de la famille\"\n- \"Je souhaite un avis écrit sur un contrat\"\n- \"J'ai besoin d'assistance pour une procédure judiciaire\"\n\n**Veuillez répondre avec votre email et votre demande :**\n",
+    "response_time": 22.49980926513672,
+    "status": "✅ PASS",
+    "error": null
+  },
+  {
+    "category": "🆘 HUMAN ASSISTANCE",
+    "test_name": "Lawyer Request with Madagascar Context",
+    "query": "Je veux parler à un avocat spécialisé à Madagascar",
+    "expected": "Should detect assistance request and ask for email",
+    "response": "🔔 **Demande d'assistance juridique humaine**\n\nJe comprends que vous souhaitez être assisté(e) par un avocat humain. Pour cela, j'ai besoin de :\n\n1. **Votre adresse email** 📧\n2. **Une brève description** de la manière dont vous souhaitez être assisté(e)\n\nPar exemple :\n- \"J'ai besoin d'une consultation téléphonique sur le droit de la famille\"\n- \"Je souhaite un avis écrit sur un contrat\"\n- \"J'ai besoin d'assistance pour une procédure judiciaire\"\n\n**Veuillez répondre avec votre email et votre demande :**\n",
+    "response_time": 22.69176197052002,
+    "status": "✅ PASS",
+    "error": null
+  },
+  {
+    "category": "🆘 HUMAN ASSISTANCE",
+    "test_name": "Generic Help Request",
+    "query": "Je veux parler à un humain",
+    "expected": "Should detect assistance but may ask for clarification",
+    "response": "Je comprends que vous souhaitez parler à un humain. Malheureusement, je ne peux pas vous mettre en contact directement avec une personne. Cependant, je peux vous donner des conseils sur la manière de trouver un avocat spécialisé à Madagascar.\n\n### Comment trouver un avocat à Madagascar :\n\n1. **Barreau de Madagascar** : Consultez le site web du barreau local ou contactez-le pour obtenir une liste d'avocats spécialisés dans le domaine qui vous intéresse.\n\n2. **Recommandations** : Demandez des recommandations à des amis, des membres de la famille ou des collègues qui ont déjà eu recours à des avocats à Madagascar.\n\n3. **Consultations en ligne** : De nombreux avocats proposent des consultations en ligne. Vous pouvez rechercher des avocats sur des plateformes juridiques ou des réseaux sociaux professionnels.\n\n4. **Annuaires juridiques** : Utilisez des annuaires en ligne pour trouver des avocats par spécialité et par région.\n\n5. **Associations professionnelles** : Certaines associations professionnelles peuvent également vous orienter vers des avocats qualifiés.\n\nSi vous avez des questions spécifiques ou si vous avez besoin d'informations supplémentaires, n'hésitez pas à demander !",
+    "response_time": 18.58698606491089,
+    "status": "✅ PASS",
+    "error": null
+  },
+  {
+    "category": "🆘 HUMAN ASSISTANCE",
+    "test_name": "Email in Query",
+    "query": "Contactez-moi à test@example.com pour une consultation",
+    "expected": "Should detect email and process assistance request",
+    "response": "✅ **Demande d'assistance envoyée avec succès !**\n\n📋 **Récapitulatif :**\n- **Email utilisateur** : test@example.com\n- **Email avocat** : projects@acfai.org\n- **Statut** : ✅ Emails de confirmation envoyés\n\n📞 **Prochaines étapes :**\n1. Vous recevrez un email de confirmation dans quelques minutes\n2. Notre avocat vous contactera dans les 24-48 heures\n3. Préparez les documents relatifs à votre situation\n\n💼 **En attendant**, puis-je vous aider sur d'autres aspects juridiques ?\n",
+    "response_time": 25.870653867721558,
+    "status": "✅ PASS",
+    "error": null
+  },
+  {
+    "category": "🔄 COMPLEX SCENARIOS",
+    "test_name": "Follow-up Legal Question",
+    "query": "Et concernant la garde des enfants dans ce cas ?",
+    "expected": "Should maintain context from previous legal query",
+    "response": "La garde des enfants est une question délicate et importante qui peut varier en fonction des lois spécifiques de chaque pays, y compris Madagascar. Voici quelques points généraux à considérer concernant la garde des enfants :\n\n### Types de garde\n\n1. **Garde exclusive** : Un parent a la garde principale de l'enfant, tandis que l'autre parent peut avoir des droits de visite.\n  \n2. **Garde partagée** : Les deux parents partagent la garde de l'enfant, ce qui peut impliquer un partage du temps passé avec l'enfant.\n\n3. **Garde temporaire** : Dans certaines situations, un parent peut obtenir la garde temporaire de l'enfant, souvent en attendant une décision finale.\n\n### Facteurs pris en compte\n\nLes tribunaux prennent en compte plusieurs facteurs lors de la détermination de la garde des enfants :\n\n- **Intérêt supérieur de l'enfant** : C'est le principe fondamental qui guide les décisions de garde. Le tribunal cherchera à déterminer ce qui est le mieux pour l'enfant.\n  \n- **Relation avec chaque parent** : Le tribunal examinera la relation de l'enfant avec chaque parent et leur capacité à répondre aux besoins de l'enfant.\n\n- **Stabilité** : La stabilité de l'environnement familial est également un facteur important.\n\n- **Préférences de l'enfant** : Selon l'âge et la maturité de l'enfant, ses préférences peuvent être prises en compte.\n\n### Procédure\n\n1. **Médiation** : Dans certains cas, les parents peuvent être encouragés à participer à une médiation pour parvenir à un accord amiable sur la garde.\n\n2. **Dépôt de la demande** : Si un accord ne peut pas être atteint, un parent peut déposer une demande auprès du tribunal pour obtenir la garde.\n\n3. **Audience** : Le tribunal tiendra une audience pour examiner les preuves et entendre les témoignages des deux parents.\n\n### Conseils\n\n- **Consultez un avocat** : Il est fortement recommandé de consulter un avocat spécialisé en droit de la famille pour obtenir des conseils adaptés à votre situation.\n\n- **Préparez des documents** : Rassemblez tous les documents pertinents, tels que les preuves de votre relation avec l'enfant, les conditions de vie, etc.\n\nSi vous avez des questions spécifiques ou si vous souhaitez des informations supplémentaires sur un aspect particulier de la garde des enfants, n'hésitez pas à demander !",
+    "response_time": 18.30379033088684,
+    "status": "✅ PASS",
+    "error": null
+  },
+  {
+    "category": "🔄 COMPLEX SCENARIOS",
+    "test_name": "Country Switch",
+    "query": "Et à Madagascar, comment ça se passe pour le divorce ?",
+    "expected": "Should switch country context appropriately",
+    "response": "Je m'excuse si je n'ai pas bien compris votre demande précédente sur \"Et concernant la garde des enfants dans ce cas ?\".\n\n🔍 **Pour m'aider à mieux vous répondre :**\n- Souhaitiez-vous des informations sur le **Bénin** ou **Madagascar** ?\n- Voulez-vous que je recherche des textes de loi ou des jurisprudences ?\n- Préférez-vous reformuler votre question différemment ?\n\nJe suis là pour vous aider !",
+    "response_time": 11.912680387496948,
+    "status": "✅ PASS",
+    "error": null
+  },
+  {
+    "category": "🔄 COMPLEX SCENARIOS",
+    "test_name": "Mixed Repair + Legal",
+    "query": "Je n'ai pas compris, pouvez-vous réexpliquer les lois sur l'héritage au Bénin ?",
+    "expected": "Should handle both repair and legal query",
+    "response": "Je m'excuse si je n'ai pas bien compris votre demande précédente sur \"Et concernant la garde des enfants dans ce cas ?\".\n\n🔍 **Pour m'aider à mieux vous répondre :**\n- Souhaitiez-vous des informations sur le **Bénin** ou **Madagascar** ?\n- Voulez-vous que je recherche des textes de loi ou des jurisprudences ?\n- Préférez-vous reformuler votre question différemment ?\n\nJe suis là pour vous aider !",
+    "response_time": 12.53772234916687,
+    "status": "✅ PASS",
+    "error": null
+  },
+  {
+    "category": "⚠️ EDGE CASES",
+    "test_name": "Empty Query",
+    "query": "",
+    "expected": "Should handle empty input gracefully",
+    "response": "ERROR: Message cannot be empty",
+    "response_time": 1.1920928955078125e-05,
+    "status": "❌ ERROR",
+    "error": "Message cannot be empty"
+  },
+  {
+    "category": "⚠️ EDGE CASES",
+    "test_name": "Very Short Query",
+    "query": "loi",
+    "expected": "Should ask for clarification",
+    "response": "Au Bénin, le droit de l'héritage est régi par le Code des personnes et de la famille, qui établit des règles concernant la succession et l'héritage. Voici un aperçu des principales dispositions relatives à l'héritage au Bénin :\n\n### Types de succession\n\n1. **Succession légale** : C'est la succession qui s'applique lorsque le défunt n'a pas laissé de testament. Les héritiers sont déterminés par la loi.\n\n2. **Succession testamentaire** : Si le défunt a rédigé un testament, la succession se fera selon les dispositions de ce testament, dans la mesure où elles respectent les droits des héritiers réservataires.\n\n### Héritiers\n\nLes héritiers sont classés en différentes catégories :\n\n- **Héritiers réservataires** : Ce sont les membres de la famille qui ont droit à une part minimale de l'héritage, même si le défunt a laissé un testament. Cela inclut généralement le conjoint survivant et les enfants.\n\n- **Héritiers non réservataires** : Ce sont d'autres membres de la famille qui peuvent hériter si le défunt n'a pas de descendants directs ou de conjoint survivant.\n\n### Partage de l'héritage\n\n- **Partage égalitaire** : En général, l'héritage est partagé de manière égale entre les héritiers réservataires. Par exemple, les enfants se partagent la succession de manière égale.\n\n- **Droits du conjoint survivant** : Le conjoint survivant a également des droits sur la succession, qui peuvent varier en fonction de la présence d'enfants ou d'autres héritiers.\n\n### Testament\n\n- **Forme du testament** : Le testament peut être écrit ou oral, mais il doit respecter certaines formalités pour être valide. Il est conseillé de le faire devant un notaire pour éviter des contestations.\n\n- **Révocation du testament** : Un testament peut être révoqué à tout moment par le testateur, tant qu'il est en pleine capacité de ses moyens.\n\n### Litiges\n\nEn cas de litige concernant la succession, les parties peuvent saisir le tribunal compétent pour résoudre le conflit. Il est souvent recommandé de recourir à la médiation pour éviter des procédures judiciaires longues et coûteuses.\n\n### Conclusion\n\nIl est conseillé de consulter un avocat spécialisé en droit de la famille ou en droit des successions au Bénin pour obtenir des conseils adaptés à votre situation spécifique, surtout si des questions complexes se posent concernant la succession ou le testament.\n\nSi vous avez d'autres questions ou si vous souhaitez des précisions sur un aspect particulier, n'hésitez pas à demander !",
+    "response_time": 18.084796667099,
+    "status": "✅ PASS",
+    "error": null
+  },
+  {
+    "category": "⚠️ EDGE CASES",
+    "test_name": "Non-Legal Query",
+    "query": "Quel temps fait-il aujourd'hui ?",
+    "expected": "Should handle non-legal queries appropriately",
+    "response": "Je ne peux pas fournir d'informations en temps réel, y compris la météo actuelle. Pour connaître le temps qu'il fait aujourd'hui, je vous recommande de consulter un site de météo ou une application dédiée. Si vous avez besoin d'informations sur les tendances météorologiques ou des conseils sur la façon de vérifier la météo, je suis là pour vous aider !",
+    "response_time": 18.586236238479614,
+    "status": "✅ PASS",
+    "error": null
+  }
+]
