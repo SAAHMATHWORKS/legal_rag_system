@@ -3,24 +3,22 @@ import os
 
 def create_langgraph_image(output_filename="langgraph_workflow", format="png"):
     """
-    Create a PNG image of the LangGraph workflow
+    Create a PNG image of the updated LangGraph workflow
     """
-    # Create a new directed graph
     dot = Digraph(comment='LangGraph Workflow', format=format)
-    dot.attr(rankdir='TB', size='8,10')  # Top to bottom layout
+    dot.attr(rankdir='TB', size='8,10')
     
-    # Define node styles
+    # Node styles
     dot.attr('node', shape='rectangle', style='rounded,filled', 
              fillcolor='lightblue', fontname='Arial', fontsize='12')
     
-    # Define special nodes
-    dot.attr('node', shape='ellipse', fillcolor='lightgreen')  # Start/End nodes
+    # Special nodes
+    dot.attr('node', shape='ellipse', fillcolor='lightgreen')
+    dot.node('START', 'START')
+    dot.node('END', 'END')
     
-    # Add nodes
-    dot.node('START', 'START', fillcolor='lightgreen')
-    dot.node('END', 'END', fillcolor='lightgreen')
-    
-    # Regular nodes with different colors for different types
+    # Workflow nodes
+    dot.node('conversation_repair', 'Conversation Repair', fillcolor='lightgoldenrod1')
     dot.node('router', 'Router\n(Country Detection)', fillcolor='lightcoral')
     dot.node('benin_retrieval', 'Benin Retrieval', fillcolor='lightyellow')
     dot.node('madagascar_retrieval', 'Madagascar Retrieval', fillcolor='lightyellow')
@@ -30,49 +28,53 @@ def create_langgraph_image(output_filename="langgraph_workflow", format="png"):
     dot.node('collect_email', 'Collect Email', fillcolor='lightpink')
     dot.node('process_assistance', 'Process Assistance', fillcolor='lightpink')
     
-    # Add edges with different styles for conditional vs regular edges
-    dot.edge('START', 'router')
+    # Edges
+    dot.edge('START', 'conversation_repair')
     
-    # Conditional edges from router (dashed for conditional)
+    # Conditional edge from conversation_repair
+    dot.edge('conversation_repair', 'router', label=' Route', style='dashed')
+    
+    # Router decisions
     dot.edge('router', 'benin_retrieval', label=' Benin', style='dashed')
     dot.edge('router', 'madagascar_retrieval', label=' Madagascar', style='dashed')
     dot.edge('router', 'unclear_route', label=' Unclear', style='dashed')
     
-    # Regular edges from retrieval nodes
+    # Retrieval flows
     dot.edge('benin_retrieval', 'detect_assistance')
     dot.edge('madagascar_retrieval', 'detect_assistance')
     dot.edge('unclear_route', 'detect_assistance')
     
-    # Conditional edges from detect_assistance
-    dot.edge('detect_assistance', 'collect_email', label=' Assistance\nNeeded', style='dashed')
+    # Assistance detection
+    dot.edge('detect_assistance', 'collect_email', label=' Assistance Needed', style='dashed')
     dot.edge('detect_assistance', 'response_generation', label=' No Assistance', style='dashed')
+    dot.edge('detect_assistance', 'process_assistance', label=' Direct Processing', style='dashed')
     
-    # Assistance flow
+    # Assistance flows
     dot.edge('collect_email', 'process_assistance')
     dot.edge('process_assistance', 'END')
     
     # Normal flow
     dot.edge('response_generation', 'END')
     
-    # Add some styling for better visualization
-    dot.attr(label='Multi-Country Legal Assistant Workflow')
+    # Graph label
+    dot.attr(label='Multi-Country Legal Assistant Workflow (Updated)')
     dot.attr(fontsize='16', fontname='Arial Bold')
     
-    # Render the graph
     dot.render(output_filename, cleanup=True, format=format)
     print(f"Workflow image saved as {output_filename}.{format}")
     
     return dot
 
+
 def create_detailed_langgraph_image(output_filename="langgraph_workflow_detailed", format="png"):
     """
-    Create a more detailed version with function names
+    Create a more detailed version with function names for the updated workflow
     """
     dot = Digraph(comment='Detailed LangGraph Workflow', format=format)
     dot.attr(rankdir='TB', size='10,12')
     
     # Node styles
-    dot.attr('node', shape='rectangle', style='rounded,filled', 
+    dot.attr('node', shape='rectangle', style='rounded,filled',
              fillcolor='lightblue', fontname='Arial', fontsize='10')
     
     # Special nodes
@@ -81,6 +83,9 @@ def create_detailed_langgraph_image(output_filename="langgraph_workflow_detailed
     dot.node('END', 'END')
     
     # Detailed nodes with function names
+    dot.attr('node', fillcolor='lightgoldenrod1')
+    dot.node('conversation_repair', 'conversation_repair\n_conversation_repair_node')
+    
     dot.attr('node', fillcolor='lightcoral')
     dot.node('router', 'router\n_router_node')
     
@@ -99,8 +104,9 @@ def create_detailed_langgraph_image(output_filename="langgraph_workflow_detailed
     dot.node('collect_email', 'collect_email\n_collect_email_node')
     dot.node('process_assistance', 'process_assistance\n_process_assistance_node')
     
-    # Edges (same structure as before)
-    dot.edge('START', 'router')
+    # Edges
+    dot.edge('START', 'conversation_repair')
+    dot.edge('conversation_repair', 'router', label=' Route', style='dashed')
     dot.edge('router', 'benin_retrieval', label=' Benin', style='dashed')
     dot.edge('router', 'madagascar_retrieval', label=' Madagascar', style='dashed')
     dot.edge('router', 'unclear_route', label=' Unclear', style='dashed')
@@ -109,6 +115,7 @@ def create_detailed_langgraph_image(output_filename="langgraph_workflow_detailed
     dot.edge('unclear_route', 'detect_assistance')
     dot.edge('detect_assistance', 'collect_email', label=' Assistance', style='dashed')
     dot.edge('detect_assistance', 'response_generation', label=' No Assistance', style='dashed')
+    dot.edge('detect_assistance', 'process_assistance', label=' Direct Processing', style='dashed')
     dot.edge('collect_email', 'process_assistance')
     dot.edge('process_assistance', 'END')
     dot.edge('response_generation', 'END')
@@ -117,6 +124,7 @@ def create_detailed_langgraph_image(output_filename="langgraph_workflow_detailed
     print(f"Detailed workflow image saved as {output_filename}.{format}")
     
     return dot
+
 
 if __name__ == "__main__":
     # Install required package: pip install graphviz
